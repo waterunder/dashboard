@@ -169,7 +169,7 @@
                     </div>
                     {% else %}
                     <div class="media-body">
-                      <h6 class="mt-2 user-title"><a href="{% url 'login' %}">Log In</a></h6>
+                      <h6 class="mt-2 user-title"><a href="{% url 'account_login' %}">Log In</a></h6>
                       <p class="user-subtitle"><a href="">Sign Up</a></p>
                     </div>
                     {% endif %}
@@ -183,7 +183,8 @@
               <li class="dropdown-divider"></li>
               <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><a href="{% url 'logout' %}"><i class="icon-power mr-2"></i> Logout</a></li>
+              <li class="dropdown-item"><a href="{% url 'account_logout' %}"><i class="icon-power mr-2"></i> Logout</a>
+              </li>
             </ul>
           </li>
         </ul>
