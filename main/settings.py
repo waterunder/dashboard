@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'dashboard.apps.DashboardConfig',
+    'products.apps.ProductsConfig',
 ]
 
 # django-allauth config
