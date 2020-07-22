@@ -7,5 +7,14 @@
     <h2>{{ product.title }}</h2>
     <p>{{ product.description }}</p>
     <p>{{ product.price }}</p>
+    <div>
+        <h3>Reviews</h3>
+        <ul>
+            {% for review in product.reviews.all %}
+            <li>{{ review.review }} - ({{ review.author }})</li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
+
 {% endblock content %}
