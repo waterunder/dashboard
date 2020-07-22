@@ -18,7 +18,7 @@ class Product(models.Model):
         return reverse('product_detail', args=[str(self.id)])
 
 
-class Review(models.Review):
+class Review(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews',)
     review = models.CharField(max_length=255)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
