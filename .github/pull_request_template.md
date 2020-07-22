@@ -1,17 +1,17 @@
 # Description
 
-[XXX-000] _Replace XXX-000 with your ticket number_
+[XXX-000]
 
-_Include a brief summary of the change_
+## Summary
 
 ## Dependencies
 
-_Delete this section if not relevant_
-
 This pull request is dependent on (must be merged **after**):
+
 - _url of related pull request_
 
 This pull request is a dependency of (must be merged **before**) the following pull requests:
+
 - _url of blocked pull request_
 
 ## Type of change
@@ -24,14 +24,14 @@ Please delete options that are not relevant.
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
 
-# How Has This Been Tested?
+# How Has This Been Tested
 
 Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
 
 - Test A
 - Test B
 
-# Checklist:
+# Checklist
 
 - [ ] The title of the PR starts with the ticket number, e.g. "EP-123 Do this and that"
 - [ ] I have performed a self-review of my own code
