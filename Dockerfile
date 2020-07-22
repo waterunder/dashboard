@@ -2,15 +2,15 @@
 FROM python:3.7
 
 # set environment variables
-ENV PYTHONWRITEBYTECODE 1
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# set work directory
+# set work dir
 WORKDIR /code
 
-# Install dependencies
+# install requirements
 COPY Pipfile Pipfile.lock /code/
-RUN pip install --upgrade pip && pip install pipenv && pipenv install --system
+RUN pip install pipenv && pipenv install --system
 
-# Copy project
+# copy project
 COPY . /code/
