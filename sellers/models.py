@@ -3,6 +3,7 @@ import uuid
 
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.urls import reverse
 
 
 class Seller(models.Model):
@@ -42,3 +43,6 @@ class Seller(models.Model):
                 self.country,
             ]
         )
+
+    def get_absolute_url(self):
+        return reverse('seller_detail', args=[str(self.id)])
