@@ -3,7 +3,9 @@
 
 {% block content %}
 <div>
+    {% if seller.logo %}
     <img class="img-fluid" src="{{ seller.logo.url }}" alt="{{ seller.logo }}">
+    {% endif %}
     {% if seller.header_image %}
     <img class="img-fluid" src="{{ seller.header_image.url }}" alt="{{ seller.name }}">
     {% endif %}
