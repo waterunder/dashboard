@@ -1,3 +1,4 @@
+
 import uuid
 
 from django.contrib.auth import get_user_model
@@ -8,6 +9,7 @@ class Seller(models.Model):
     SUPPORTED_COUNTRIES = (
         ("uk", "United Kingdom"),
         ("us", "United States of America"),
+        ("ar", "Argentina"),
     )
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
