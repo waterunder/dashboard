@@ -4,6 +4,8 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 
+from sellers.models import Seller
+
 
 class Product(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -11,6 +13,8 @@ class Product(models.Model):
     description = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     cover = models.ImageField(upload_to='covers/', blank=True)
+
+    seller = models.ForeignKey(Seller, on_delete=models.CASCADE, related_name='products',)
 
     def __str__(self):
         return self.title
