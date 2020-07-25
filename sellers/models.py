@@ -30,7 +30,7 @@ class Seller(models.Model):
     logo = models.ImageField(upload_to='sellers/logo/', blank=True, null=True)
     header_image = models.ImageField(upload_to='sellers/headerImage', blank=True, null=True)
 
-    owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    owner = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
 
     def __str__(self):
         return ", ".join(
