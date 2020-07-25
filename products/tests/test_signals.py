@@ -10,7 +10,11 @@ from sellers.models import Seller
 
 class TestSignal(TestCase):
     def test_thumbnails_are_generated_on_save(self):
-        user = get_user_model().objects.all()[0]
+        user = get_user_model().objects.create_user(
+            username='reviewuser',
+            email='reviewuser@email.com',
+            password='testpass123',
+        )
         seller = Seller(name='The Royal Co.',
                         email='theroyal@email.com',
                         address1='155, BakerStreet, London',
@@ -25,6 +29,8 @@ class TestSignal(TestCase):
             price=Decimal('10.00'),
             seller=seller,
         )
+        user.save()
+        seller.save()
         product.save()
 
         with open('products/fixtures/the-cathedral-the-bazaar.jpg', 'rb') as f:
@@ -32,7 +38,7 @@ class TestSignal(TestCase):
                 product=product,
                 image=ImageFile(f, name='tctb.jpg'),
             )
-            with self.assertLogs('main', level='INFO') as cm:
+            with self.assertLogs('products.signals', level='INFO') as cm:
                 image.save()
 
         self.assertGreaterEqual(len(cm.output), 1)
