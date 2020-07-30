@@ -1,0 +1,1002 @@
+[
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Jordan, Cameron and Hill",
+            "description": "Believe similar keep college. President civil stop would little course. Rather pick court college increase opportunity.",
+            "email": "robert09@hotmail.com",
+            "address1": "37655 Patricia Stravenue Apt. 457\nEast Anthony, UT 82975",
+            "address2": "8442 Jimmy Hills\nNew Cynthia, IL 44872",
+            "zip_code": "80254",
+            "city": "West Randy",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://dummyimage.com/521x791",
+            "header_image": "https://placeimg.com/70/944/any",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Brown-Jordan",
+            "description": "Deal always financial especially. System hot low stop standard trip decade. Computer state free bank however capital network someone.",
+            "email": "shannonhall@calderon.info",
+            "address1": "0557 Arthur Road\nDeleonview, KY 73572",
+            "address2": "8299 Holly Vista\nMoorehaven, MD 87793",
+            "zip_code": "62293",
+            "city": "New Lorihaven",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://www.lorempixel.com/696/1008",
+            "header_image": "https://dummyimage.com/869x987",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Hill-Mcdonald",
+            "description": "Quality very also choose happy single.",
+            "email": "harrisryan@holmes.org",
+            "address1": "0285 Miranda Coves\nOwensport, HI 85631",
+            "address2": "418 Jacobs Street Apt. 119\nPort Frances, OH 50899",
+            "zip_code": "82781",
+            "city": "Port Kaylafort",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://www.lorempixel.com/94/102",
+            "header_image": "https://placekitten.com/780/950",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Gates PLC",
+            "description": "Worry control direction air goal floor piece. Figure safe several keep some lay hit. Poor change player great.",
+            "email": "npoole@hotmail.com",
+            "address1": "48354 Hernandez Square Suite 224\nNorth Shannontown, UT 88598",
+            "address2": "455 Kimberly Lock Apt. 325\nMargaretshire, NE 49767",
+            "zip_code": "21072",
+            "city": "Chelseafurt",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://www.lorempixel.com/965/209",
+            "header_image": "https://dummyimage.com/294x244",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Cunningham-Braun",
+            "description": "Step listen whose clearly federal whatever. Industry field simply network they wonder price natural.",
+            "email": "jacob13@yahoo.com",
+            "address1": "26396 Rebecca Curve\nNew Michellefort, WV 56115",
+            "address2": "57042 Jerry Path\nSarachester, MT 73252",
+            "zip_code": "31341",
+            "city": "Lake Desireeport",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://placeimg.com/597/221/any",
+            "header_image": "https://placekitten.com/164/746",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Kramer PLC",
+            "description": "Training provide store door to blood. All serve back win drug. Term stage in simple ability when close.",
+            "email": "mitchellshelby@yahoo.com",
+            "address1": "116 Thomas Corners\nNew Jane, MS 78900",
+            "address2": "21316 Shaw Green\nMichaelland, MA 73050",
+            "zip_code": "66563",
+            "city": "Martinezville",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": false,
+            "logo": "https://placeimg.com/111/597/any",
+            "header_image": "https://www.lorempixel.com/514/307",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Hawkins, Espinoza and Savage",
+            "description": "Story know population across local discover. Near thousand recognize report. Material herself wall better piece.",
+            "email": "danielsjoseph@alvarez-johnson.com",
+            "address1": "970 Zimmerman Row\nPort Jeffrey, ME 30170",
+            "address2": "76629 Teresa Forge\nRobinsonstad, AL 65965",
+            "zip_code": "71919",
+            "city": "West Lukefort",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": false,
+            "logo": "https://dummyimage.com/479x34",
+            "header_image": "https://placeimg.com/841/929/any",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Owens-Hicks",
+            "description": "Kind first knowledge red remain year. Ok yourself top side voice myself product.",
+            "email": "sheila76@gmail.com",
+            "address1": "2778 Alexander Track\nWest Patricia, IA 73107",
+            "address2": "655 Erin Corners Suite 034\nNew Amberport, AZ 74109",
+            "zip_code": "24527",
+            "city": "Margaretton",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://dummyimage.com/922x1020",
+            "header_image": "https://www.lorempixel.com/79/807",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "West-Douglas",
+            "description": "Prevent stage certainly herself. Message official enjoy reveal sell security drop movie.",
+            "email": "hsosa@hotmail.com",
+            "address1": "774 Mary Square Apt. 028\nEast Lisamouth, SD 53032",
+            "address2": "493 Allen Vista Suite 077\nLeeland, NC 11038",
+            "zip_code": "71715",
+            "city": "Paulbury",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": false,
+            "logo": "https://placekitten.com/579/522",
+            "header_image": "https://dummyimage.com/24x466",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Sutton, Warner and Andrews",
+            "description": "Want determine fall property husband gas action. Friend drive father add physical about way. Especially during best month late until factor he.",
+            "email": "steven26@yahoo.com",
+            "address1": "37290 Jackson Rest Apt. 280\nWest Hannahchester, ND 03853",
+            "address2": "162 Kenneth Orchard\nWest Spencermouth, WY 39000",
+            "zip_code": "80874",
+            "city": "New Jenna",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": false,
+            "logo": "https://placeimg.com/146/149/any",
+            "header_image": "https://www.lorempixel.com/810/840",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Wise, Ward and Kramer",
+            "description": "Nor decade seat old development meet hope author. Foreign experience southern free morning. Finish book new party score have.",
+            "email": "eclark@sexton-bradley.com",
+            "address1": "2073 Guzman Bypass\nPort Brian, OH 84800",
+            "address2": "63475 John Course\nJonesview, AZ 40037",
+            "zip_code": "45522",
+            "city": "New Holly",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://placeimg.com/233/415/any",
+            "header_image": "https://dummyimage.com/226x797",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Mcgee-Johnson",
+            "description": "Hot month beat on foreign miss. Car three majority a camera.",
+            "email": "jackie22@long.com",
+            "address1": "790 Morales Trail\nSouth Johnnymouth, OR 35406",
+            "address2": "805 Matthew Field\nPort Ronaldburgh, IN 52943",
+            "zip_code": "63372",
+            "city": "Alexberg",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://placekitten.com/6/940",
+            "header_image": "https://www.lorempixel.com/673/256",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Mora-Raymond",
+            "description": "Water not bed south old seek. End to score yet.",
+            "email": "heathercooper@yahoo.com",
+            "address1": "92409 Chelsea Passage Apt. 256\nNicoleville, TN 08166",
+            "address2": "4351 Morales Ranch\nChristopherbury, NV 31398",
+            "zip_code": "15206",
+            "city": "East Timothychester",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": false,
+            "logo": "https://dummyimage.com/248x846",
+            "header_image": "https://dummyimage.com/469x884",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Lawrence, Scott and Mcfarland",
+            "description": "Page strong show stuff campaign simply respond unit. New all blood thought.",
+            "email": "vnichols@rowe.com",
+            "address1": "621 Jessica Stream\nSouth Juliebury, NE 41688",
+            "address2": "344 Amanda Roads Apt. 099\nWest Kimberly, KS 16629",
+            "zip_code": "04137",
+            "city": "Loganview",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://placekitten.com/972/240",
+            "header_image": "https://placeimg.com/840/818/any",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Henson, Sullivan and Alvarado",
+            "description": "Reduce recognize against they draw long. Case beautiful return so wonder total itself television. Dog you approach shake.",
+            "email": "jeffreybowen@hotmail.com",
+            "address1": "9776 Zachary Bypass\nNew Jessicaburgh, NE 75819",
+            "address2": "2799 Peters Locks Suite 116\nWilsonport, KY 56803",
+            "zip_code": "87701",
+            "city": "New John",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://dummyimage.com/867x618",
+            "header_image": "https://dummyimage.com/211x843",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Rivera, Melendez and Perez",
+            "description": "Each strategy foreign culture skill animal. Room herself contain east light popular. Challenge deep daughter piece exactly exactly.",
+            "email": "daniel76@rodriguez.com",
+            "address1": "3017 Steve Skyway\nLeonardmouth, AL 22883",
+            "address2": "168 Shannon Parks\nLake Lisafurt, HI 08517",
+            "zip_code": "80570",
+            "city": "South Jessicafort",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": false,
+            "logo": "https://www.lorempixel.com/775/731",
+            "header_image": "https://dummyimage.com/773x280",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Todd, Gomez and Jones",
+            "description": "Rule believe series. Field radio reach keep. Where idea close food need character.",
+            "email": "charris@meyers.com",
+            "address1": "USNV Callahan\nFPO AP 46330",
+            "address2": "81752 Anthony Pine\nWest Zacharybury, MI 16539",
+            "zip_code": "20005",
+            "city": "Austinmouth",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://dummyimage.com/822x451",
+            "header_image": "https://placekitten.com/141/379",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Doyle Ltd",
+            "description": "Involve also war there. Structure different decide together. Rule against skin project we same peace.",
+            "email": "ashleyavila@hotmail.com",
+            "address1": "35967 David Drive Suite 820\nNorth Johnburgh, TN 71996",
+            "address2": "612 Sabrina Rapid Suite 863\nNorth Kristen, AK 45105",
+            "zip_code": "26398",
+            "city": "Port Maryland",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": false,
+            "logo": "https://www.lorempixel.com/835/954",
+            "header_image": "https://dummyimage.com/915x380",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Vasquez Group",
+            "description": "Century market catch enter. Traditional lose order discover money town. Already speech among this class week another.",
+            "email": "nhall@guzman.net",
+            "address1": "761 Figueroa Drives\nSamuelfort, ID 53249",
+            "address2": "680 Michelle Trafficway\nMichaelhaven, TX 22434",
+            "zip_code": "60948",
+            "city": "North Dominicview",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": false,
+            "logo": "https://placekitten.com/520/687",
+            "header_image": "https://dummyimage.com/40x508",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Gilbert Ltd",
+            "description": "Force worry determine billion because. Two another if final situation. Major opportunity few safe political out.",
+            "email": "dianebrown@hotmail.com",
+            "address1": "54757 Michelle Shore Suite 938\nJacobmouth, WI 69173",
+            "address2": "351 Kathryn Mills Suite 826\nPort Brendan, CA 05605",
+            "zip_code": "14583",
+            "city": "Lake Jessica",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": false,
+            "logo": "https://placekitten.com/459/781",
+            "header_image": "https://placekitten.com/850/950",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Clark-Wade",
+            "description": "Bar star bill defense apply. Positive but her building action center.",
+            "email": "theresa48@robinson-roman.com",
+            "address1": "7811 John Plains Suite 438\nMartinside, OK 49049",
+            "address2": "833 Middleton Harbor Suite 718\nWest Matthewland, CO 73913",
+            "zip_code": "54849",
+            "city": "Hernandezton",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://placekitten.com/244/671",
+            "header_image": "https://dummyimage.com/577x714",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Henderson and Sons",
+            "description": "Able smile partner expect follow picture. Different animal south hundred machine. Out shoulder would night there network could.",
+            "email": "jennifer35@yahoo.com",
+            "address1": "810 Kristina Circle Suite 253\nJoshuashire, NE 81435",
+            "address2": "85329 Sarah Station Apt. 097\nRicardoview, FL 36530",
+            "zip_code": "26973",
+            "city": "New Michelle",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://dummyimage.com/778x942",
+            "header_image": "https://placeimg.com/678/133/any",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Guzman Group",
+            "description": "Who need analysis successful painting. Whole action bar wonder southern oil set.",
+            "email": "robert44@gmail.com",
+            "address1": "87329 Candice Prairie Suite 410\nSabrinaberg, GA 89966",
+            "address2": "55247 Karen Junctions\nCarrstad, AL 70636",
+            "zip_code": "00510",
+            "city": "Ryanport",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://www.lorempixel.com/312/936",
+            "header_image": "https://www.lorempixel.com/859/319",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Turner Group",
+            "description": "Walk side focus team.",
+            "email": "lukewerner@yahoo.com",
+            "address1": "013 Julie Land\nSouth Natalie, OR 69179",
+            "address2": "5236 Franklin Passage Suite 661\nJasminetown, ME 31795",
+            "zip_code": "40458",
+            "city": "Danielschester",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": false,
+            "logo": "https://dummyimage.com/251x145",
+            "header_image": "https://www.lorempixel.com/26/937",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Young Group",
+            "description": "Recent never time Mr spring recently decision. Expect second officer interest a describe plant. Arrive industry herself lead spend recently.",
+            "email": "timothy01@yahoo.com",
+            "address1": "09017 Beverly Junction Apt. 025\nDustinbury, AZ 32032",
+            "address2": "524 Hall Gardens\nNew Jamesside, UT 75657",
+            "zip_code": "71738",
+            "city": "Huffmanville",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://placeimg.com/906/683/any",
+            "header_image": "https://www.lorempixel.com/280/749",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Miller-Warner",
+            "description": "Image body both business. Specific available necessary speech three. Serious up remember against care.",
+            "email": "tracy69@hotmail.com",
+            "address1": "10945 Joseph Locks\nMitchellfort, WV 26309",
+            "address2": "2662 Nichols Orchard Apt. 494\nWolfetown, MA 95705",
+            "zip_code": "13676",
+            "city": "Moniqueville",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://www.lorempixel.com/746/7",
+            "header_image": "https://placeimg.com/66/417/any",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Mcdonald-Fisher",
+            "description": "No cover student letter add prove perhaps.",
+            "email": "derek18@fox.com",
+            "address1": "0075 Sarah Greens Apt. 367\nSarahmouth, UT 63108",
+            "address2": "396 Thornton Throughway\nPort Holly, VT 88390",
+            "zip_code": "59022",
+            "city": "West Rebeccamouth",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://placekitten.com/534/138",
+            "header_image": "https://dummyimage.com/499x390",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Holmes-Price",
+            "description": "Somebody machine prevent common buy system. Military inside late science cost.",
+            "email": "melissarodriguez@williams-dickerson.org",
+            "address1": "177 Nelson Road Suite 432\nMelaniestad, MT 21197",
+            "address2": "026 Tran Row Suite 985\nLake Isabellatown, ID 43278",
+            "zip_code": "56816",
+            "city": "Whitechester",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://www.lorempixel.com/827/64",
+            "header_image": "https://dummyimage.com/961x411",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Booth, Mason and Salazar",
+            "description": "Along expect even smile.",
+            "email": "keith49@hotmail.com",
+            "address1": "511 Lopez Rue\nBrianberg, NY 82025",
+            "address2": "1944 Daniel Islands Suite 762\nSouth Jeffrey, ND 56097",
+            "zip_code": "19804",
+            "city": "Kingstad",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://dummyimage.com/93x837",
+            "header_image": "https://placeimg.com/135/674/any",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Little, Sloan and Martinez",
+            "description": "Wrong well break room collection debate leader large. Go gun soldier position.",
+            "email": "qrowe@yahoo.com",
+            "address1": "599 David Harbors\nLaurahaven, SC 84743",
+            "address2": "5745 Ponce Loaf\nHerrerachester, AL 17229",
+            "zip_code": "04053",
+            "city": "West Staceyland",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://placeimg.com/255/53/any",
+            "header_image": "https://dummyimage.com/882x616",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Hayes-Thompson",
+            "description": "Have despite continue laugh produce. Affect year increase. Name office commercial run else reduce laugh.",
+            "email": "kingmark@gmail.com",
+            "address1": "46974 Vargas Heights\nNicolasmouth, MS 70486",
+            "address2": "31694 Dennis Mountains Apt. 585\nBrandishire, MA 94683",
+            "zip_code": "57628",
+            "city": "Parkerberg",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://www.lorempixel.com/37/702",
+            "header_image": "https://dummyimage.com/479x691",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Fisher Ltd",
+            "description": "Plant likely significant free the house clear. Special serve under develop positive skin method.",
+            "email": "prestonsarah@hotmail.com",
+            "address1": "03302 Devon Center Suite 400\nLake Alejandro, NY 61448",
+            "address2": "18170 Osborne Trace Suite 577\nFloresbury, HI 63013",
+            "zip_code": "21025",
+            "city": "East Robert",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": false,
+            "logo": "https://www.lorempixel.com/832/100",
+            "header_image": "https://dummyimage.com/492x501",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Lopez PLC",
+            "description": "Might medical between career. Onto rise summer speak mother teacher these. Who hour color hospital daughter rather teach they.",
+            "email": "marcusfranco@pearson-christensen.com",
+            "address1": "85036 Andrews Spurs Apt. 652\nHeatherborough, MA 62858",
+            "address2": "20102 James Camp Apt. 493\nMindyville, MI 44986",
+            "zip_code": "67836",
+            "city": "Humphreychester",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": false,
+            "logo": "https://placekitten.com/709/24",
+            "header_image": "https://placeimg.com/470/638/any",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Rangel, Vega and Stevens",
+            "description": "Back once network manager.",
+            "email": "aoliver@gmail.com",
+            "address1": "6770 Tony Glens Suite 504\nPhamberg, MT 60851",
+            "address2": "17104 Jeremy Bypass\nKimberlyhaven, AL 83616",
+            "zip_code": "15232",
+            "city": "Carolinestad",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://placeimg.com/574/555/any",
+            "header_image": "https://dummyimage.com/427x748",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Bond LLC",
+            "description": "Magazine thank generation already shoulder. College can increase avoid sound system. Exist page weight wear than allow thus.",
+            "email": "benjaminbenson@yahoo.com",
+            "address1": "1985 Santiago Plaza\nPort Samanthaton, GA 41307",
+            "address2": "10029 Linda Lane\nJustinstad, CT 57288",
+            "zip_code": "37999",
+            "city": "North Matthewfort",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": false,
+            "logo": "https://dummyimage.com/398x165",
+            "header_image": "https://www.lorempixel.com/246/342",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Garcia Inc",
+            "description": "Become radio fear anyone difficult. Allow score time factor. Child smile later tonight trade.",
+            "email": "james14@moore-baker.net",
+            "address1": "21238 James Parks\nMitchellfurt, VA 26461",
+            "address2": "28700 Reed Turnpike\nNorth Nicole, PA 69176",
+            "zip_code": "52254",
+            "city": "South Destiny",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://dummyimage.com/1013x169",
+            "header_image": "https://placekitten.com/1023/408",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Ramsey, Orr and Howe",
+            "description": "Where capital soon in account laugh account. Quickly couple various memory. Government discussion season like news.",
+            "email": "caseysmith@yahoo.com",
+            "address1": "751 Shawn Oval Suite 220\nSouth Jasminefort, VA 44297",
+            "address2": "0943 Owens Crossroad Apt. 655\nEast Tyler, AL 06464",
+            "zip_code": "23976",
+            "city": "North Catherine",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": false,
+            "logo": "https://placeimg.com/522/868/any",
+            "header_image": "https://dummyimage.com/246x569",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Kim, Hammond and Jones",
+            "description": "Experience party hotel shoulder. Color box run choice half trade room. Bag last PM discussion.",
+            "email": "leeherman@lambert.com",
+            "address1": "4554 Amber Stravenue Suite 870\nNorth Tinafort, LA 59229",
+            "address2": "6334 Davies Land Suite 334\nRobertberg, GA 56107",
+            "zip_code": "99464",
+            "city": "Burketon",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": false,
+            "logo": "https://www.lorempixel.com/596/837",
+            "header_image": "https://dummyimage.com/617x434",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Davis, Ritter and White",
+            "description": "News focus law difficult exist future event senior. Lawyer camera follow.",
+            "email": "shannonfitzgerald@gmail.com",
+            "address1": "USS Wilson\nFPO AA 47238",
+            "address2": "768 Gina Orchard\nWilliamsstad, RI 67143",
+            "zip_code": "16093",
+            "city": "South Stuartstad",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://www.lorempixel.com/907/64",
+            "header_image": "https://placekitten.com/585/49",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Acevedo, Bennett and Johnston",
+            "description": "Great cell admit market issue success participant. Bag health wife indeed end. Matter prevent participant military. Hour game land too try ball wonder.",
+            "email": "dale74@wilson-walker.biz",
+            "address1": "1227 Ortiz Forge\nBrownberg, VT 10251",
+            "address2": "048 Green Locks\nRonaldfort, SC 82279",
+            "zip_code": "60640",
+            "city": "South Brittany",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://placeimg.com/662/469/any",
+            "header_image": "https://dummyimage.com/592x993",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Woods-Johnson",
+            "description": "Down mention have ten phone should. History source produce fast month give myself.",
+            "email": "adamsmiguel@cox.biz",
+            "address1": "5204 Hamilton Mills\nAmbermouth, ME 55435",
+            "address2": "0109 Kevin Squares Apt. 628\nTownsendmouth, RI 67177",
+            "zip_code": "31356",
+            "city": "New Mark",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://placeimg.com/511/739/any",
+            "header_image": "https://placekitten.com/11/273",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Jenkins-Martinez",
+            "description": "Specific stock politics as body risk sometimes. Free final wear these. National protect there money those. Song meet short.",
+            "email": "nicole92@hotmail.com",
+            "address1": "0451 Savannah Square\nWest Bryanview, MN 76758",
+            "address2": "25954 Cole Points\nLake Amyland, SD 62722",
+            "zip_code": "47829",
+            "city": "Port Patrickshire",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": false,
+            "logo": "https://placekitten.com/12/20",
+            "header_image": "https://placeimg.com/42/503/any",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Brown-Payne",
+            "description": "She material store partner woman order term. American leader nature range financial. Woman investment test sort. Picture join do southern.",
+            "email": "romerojoel@mckee-quinn.info",
+            "address1": "529 Elizabeth Place Suite 515\nNew Brianfort, NY 60292",
+            "address2": "09041 Dyer Spur\nLake Melissaborough, AL 04200",
+            "zip_code": "02199",
+            "city": "West Grantton",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://placekitten.com/415/628",
+            "header_image": "https://dummyimage.com/765x842",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Francis, Newton and Hopkins",
+            "description": "Until network decision stock. Why back light sometimes outside father herself. Fall race drug as business. Tv trade anything gun try now.",
+            "email": "kathleenhuffman@gmail.com",
+            "address1": "374 David Spring\nWest Claudia, LA 43433",
+            "address2": "00818 Katelyn Canyon Apt. 100\nLake Melinda, CA 52864",
+            "zip_code": "73276",
+            "city": "Taylorchester",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://dummyimage.com/478x264",
+            "header_image": "https://www.lorempixel.com/1007/147",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Lawson Group",
+            "description": "Peace Congress TV rest soon son support. Economic law most.",
+            "email": "amanda14@gmail.com",
+            "address1": "490 Davis Prairie Suite 104\nLake Sarah, UT 42081",
+            "address2": "621 Yvonne Spurs Apt. 574\nNew Haleyton, DE 27617",
+            "zip_code": "97109",
+            "city": "Lake Tina",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": false,
+            "logo": "https://placeimg.com/298/994/any",
+            "header_image": "https://www.lorempixel.com/903/383",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Robbins-Ramirez",
+            "description": "Admit gun face rich.",
+            "email": "murphyian@hotmail.com",
+            "address1": "07983 Heidi Roads\nEast Hannahside, AZ 51747",
+            "address2": "69596 Cheryl Coves\nNew Johnny, DE 57859",
+            "zip_code": "85314",
+            "city": "Wrightfort",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://placeimg.com/416/539/any",
+            "header_image": "https://placekitten.com/743/806",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Cook-Richard",
+            "description": "Leg who hit win window employee. Would face if. Offer tend ok record security bank.",
+            "email": "edwardsdonald@delgado-peters.com",
+            "address1": "115 Carlos Overpass\nConniebury, MT 82477",
+            "address2": "8837 Young Summit\nPort Stevenland, AL 01262",
+            "zip_code": "59427",
+            "city": "South Erin",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": true,
+            "logo": "https://www.lorempixel.com/282/688",
+            "header_image": "https://placekitten.com/122/192",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Acevedo, Hernandez and Warren",
+            "description": "One wall plan. Garden likely business meet simply identify often. Tonight per various material consumer.",
+            "email": "nicolemullins@scott.com",
+            "address1": "Unit 9003 Box 9656\nDPO AP 47256",
+            "address2": "49364 Matthew River\nVanessaside, MI 88356",
+            "zip_code": "69249",
+            "city": "East Aliciafurt",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": true,
+            "logo": "https://placekitten.com/42/626",
+            "header_image": "https://dummyimage.com/299x292",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Briggs-Zuniga",
+            "description": "With seem child face fund no present protect. Us draw skill matter enter save body. Hand hospital recently cold skill my student.",
+            "email": "qmendez@cannon.com",
+            "address1": "8419 Williams Passage\nNorth Susanview, MD 33463",
+            "address2": "25237 Eric Estate\nJasonburgh, PA 51470",
+            "zip_code": "73200",
+            "city": "Thomasport",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": false,
+            "is_active": false,
+            "logo": "https://placeimg.com/884/573/any",
+            "header_image": "https://dummyimage.com/611x693",
+            "owner": 1
+        }
+    },
+    {
+        "model": "sellers.seller",
+        "pk": "9db3c6f9-fd3e-4490-9529-b97c205ef866",
+        "fields": {
+            "name": "Stafford-Barnes",
+            "description": "Government model activity message join.",
+            "email": "porterrobert@gmail.com",
+            "address1": "50200 Duncan Garden\nKaitlinstad, NJ 22608",
+            "address2": "1994 Travis Groves\nLake Danielle, WA 09239",
+            "zip_code": "50813",
+            "city": "Port Bruceburgh",
+            "country": "ar",
+            "created_at": "2020-07-30T20:10:24.100Z",
+            "is_mock": true,
+            "is_active": false,
+            "logo": "https://placekitten.com/527/146",
+            "header_image": "https://www.lorempixel.com/215/892",
+            "owner": 1
+        }
+    }
+]
