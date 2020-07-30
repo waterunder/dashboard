@@ -14,11 +14,14 @@ class ProductImageInline(admin.TabularInline):
 
 class ProductAdmin(admin.ModelAdmin):
     inlines = (ProductImageInline, ReviewInline, )
-    list_display = ('title', 'price', 'in_stock', 'seller')
+    list_display = ('title', 'price', 'in_stock', 'active', 'seller_name')
     list_filter = ('price', 'in_stock', 'date_updated',)
-    list_editable = ('in_stock',)
+    list_editable = ('in_stock', 'active')
     search_fields = ('name',)
-    autocomplete_fields = ('tags',)
+    autopopulate_fields = ('tags',)
+
+    def seller_name(self, obj):
+        return obj.seller.name
 
 
 class ProductTagAdmin(admin.ModelAdmin):
