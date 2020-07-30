@@ -54,3 +54,12 @@ class ProductImageAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ProductImage, ProductImageAdmin)
+
+
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('review', 'author', 'product',)
+    list_filter = ('author',)
+    search_fields = ('product',)
+
+
+admin.site.register(Review, ReviewAdmin)
