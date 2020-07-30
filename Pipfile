@@ -19,6 +19,8 @@ django-environ = "*"
 whitenoise = "==4.1.4"
 gunicorn = "==19.9.0"
 dj-database-url = "==0.5.0"
+faker = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.7"
