@@ -9,6 +9,4 @@ urlpatterns = [
     path('tables/', views.TablesPageView.as_view(), name='tables'),
     path('calendar/', views.CalendarPageView.as_view(), name='calendar'),
     path('profile/', views.ProfilePageView.as_view(), name='profile'),
-    path('login/', views.LoginPageView.as_view(), name='login'),
-    path('register/', views.RegisterPageView.as_view(), name='register'),
 ]

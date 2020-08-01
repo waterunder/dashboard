@@ -23,11 +23,3 @@ class CalendarPageView(TemplateView):
 
 class ProfilePageView(TemplateView):
     template_name = 'dashboard/profile.html'
-
-
-class LoginPageView(TemplateView):
-    template_name = 'dashboard/login.html'
-
-
-class RegisterPageView(TemplateView):
-    template_name = 'dashboard/register.html'
