@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard</title>
+    <title>{% block title %}Dashboard{% endblock title %}</title>
     <!-- loader-->
     <link href="{% static 'dashboard/css/pace.min.css' %}" rel="stylesheet" />
     <script src="{% static 'dashboard/js/pace.min.js' %}"></script>
@@ -105,16 +105,17 @@
                 </li>
 
                 <li class="sidebar-header">LABELS</li>
-                <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a>
+                <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee"></i> <span>Important</span></a>
                 </li>
-                <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i>
+                <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut"></i>
                         <span>Warning</span></a>
                 </li>
-                <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a>
+                <li><a href="javaScript:void();"><i class="zmdi zmdi-share"></i> <span>Information</span></a>
                 </li>
-
+                <li><a href="{% url 'feedback' %}"><i class="zmdi zmdi-comment-alt-text"></i>
+                        <span>Feedback</span></a>
+                </li>
             </ul>
-
         </div>
         <!--End sidebar-wrapper-->
 
