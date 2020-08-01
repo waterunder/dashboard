@@ -25,3 +25,7 @@ class CalendarPageView(TemplateView):
 
 class ProfilePageView(TemplateView):
     template_name = 'dashboard/profile.html'
+
+
+class FeedbackPageView(TemplateView):
+    template_name = 'dashboard/feedback.html'
