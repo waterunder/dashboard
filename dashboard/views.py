@@ -1,8 +1,7 @@
-from django.views.generic import DetailView, TemplateView
+from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 
 from dashboard.forms import FeedbackForm
-from users.models import Profile
 
 
 class DashboardPageView(TemplateView):
