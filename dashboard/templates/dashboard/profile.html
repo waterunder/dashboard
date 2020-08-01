@@ -26,9 +26,8 @@
           </div>
           <div class="card-body pt-5">
             <img src="https://via.placeholder.com/110x110" alt="profile-image" class="profile">
-            <h5 class="card-title">Mark Stern</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
+            <h5 class="card-title">{{ user.get_full_name }}</h5>
+            <p class="card-text">{{ user.bio }}</p>
             <div class="icon-block">
               <a href="javascript:void();"><i class="fa fa-facebook bg-facebook text-white"></i></a>
               <a href="javascript:void();"> <i class="fa fa-twitter bg-twitter text-white"></i></a>
