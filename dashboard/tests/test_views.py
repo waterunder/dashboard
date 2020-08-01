@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import resolve, reverse
 
-from .views import DashboardPageView
+from dashboard.views import DashboardPageView
 
 
 class DashboardPageTests(TestCase):
@@ -13,5 +13,5 @@ class DashboardPageTests(TestCase):
         self.assertNotContains(response, 'Hi there! I should not be here')
 
     def test_dashboard_page_resolves_dashboardpageview(self):
-        view = resolve('/dashboard/')
+        view = resolve('/')
         self.assertEqual(view.func.__name__, DashboardPageView.as_view().__name__)
