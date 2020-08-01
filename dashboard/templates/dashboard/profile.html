@@ -1,5 +1,6 @@
 {% extends 'dashboard/base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block loader %}
 <!-- start loader -->
 <div id="pageloader-overlay" class="visible incoming">
@@ -27,7 +28,7 @@
           <div class="card-body pt-5">
             <img src="https://via.placeholder.com/110x110" alt="profile-image" class="profile">
             <h5 class="card-title">{{ user.get_full_name }}</h5>
-            <p class="card-text">{{ user.bio }}</p>
+            <p class="card-text">{{ user.profile.location }}</p>
             <div class="icon-block">
               <a href="javascript:void();"><i class="fa fa-facebook bg-facebook text-white"></i></a>
               <a href="javascript:void();"> <i class="fa fa-twitter bg-twitter text-white"></i></a>
@@ -42,9 +43,9 @@
               </div>
               <div class="media-body text-left ml-3">
                 <div class="progress-wrapper">
-                  <p>HTML5 <span class="float-right">65%</span></p>
+                  <p>HTML5 <span class="float-right">15%</span></p>
                   <div class="progress" style="height: 5px;">
-                    <div class="progress-bar" style="width:65%"></div>
+                    <div class="progress-bar" style="width:15%"></div>
                   </div>
                 </div>
               </div>
@@ -116,13 +117,13 @@
                 <h5 class="mb-3">User Profile</h5>
                 <div class="row">
                   <div class="col-md-6">
-                    <h6>About</h6>
+                    <h6>Bio</h6>
                     <p>
-                      Web Designer, UI/UX Engineer
+                      {{ user.profile.bio }}
                     </p>
-                    <h6>Hobbies</h6>
+                    <h6>Birthdate</h6>
                     <p>
-                      Indie music, skiing and hiking. I love the great outdoors.
+                      {{ user.profile.birth_date }}
                     </p>
                   </div>
                   <div class="col-md-6">
@@ -226,6 +227,11 @@
                 </div>
               </div>
               <div class="tab-pane" id="edit">
+                <form action="" method="post">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                  <button type="submit" class="btn btn-light btn-block">Save</button>
+                </form>
                 <form>
                   <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">First name</label>
