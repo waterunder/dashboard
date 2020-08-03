@@ -17,8 +17,8 @@
                         <h4 class="card-text d-flex justify-content-end">${{ product.price }}</h4>
                     </div>
                     <div class="card-footer">
-                        <small>{{ product.seller.name }}</small>
-                        <small>{{ product.date_updated }}</small>
+                        <small>{{ product.seller.name }} |</small>
+                        <small>{{ product.date_updated|date:"M d" }}</small>
                         {% for t in product.tags.all %}
                         <small>{{ t.name }},</small>
                         {% endfor %}
