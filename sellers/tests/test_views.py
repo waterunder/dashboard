@@ -36,7 +36,7 @@ class SellerTests(TestCase):
         response = self.client.get(reverse('seller_list'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Test Company LLC')
-        self.assertTemplateUsed(response, 'sellers/seller_list.html')
+        self.assertTemplateUsed(response, 'dashboard/seller_list.html')
 
     def test_seller_detail_view(self):
         response = self.client.get(self.seller.get_absolute_url())
@@ -44,6 +44,6 @@ class SellerTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Test Company LLC')
-        self.assertTemplateUsed(response, 'sellers/seller_detail.html')
+        self.assertTemplateUsed(response, 'dashboard/seller_detail.html')
 
         self.assertEqual(no_response.status_code, 404)
