@@ -44,7 +44,7 @@ class ProductTests(TestCase):
         response = self.client.get(reverse('product_list'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Kepler')
-        self.assertTemplateUsed(response, 'dashboard/product_list.html')
+        self.assertTemplateUsed(response, 'products/product_list.html')
 
     def test_product_detail_view(self):
         response = self.client.get(self.product.get_absolute_url())
