@@ -56,3 +56,18 @@ class ProductTests(TestCase):
         self.assertTemplateUsed(response, 'products/product_detail.html')
 
         self.assertEqual(no_response.status_code, 404)
+
+    def test_seller_product_list_view(self):
+        products_by_seller_url = 'seller_product_list' + self.seller.name
+        print('hitting...', products_by_seller_url)
+
+        response = self.client.get(products_by_seller_url)
+        no_response = self.client.get('/products/dummy-seller/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, self.seller.name)
+        self.assertContains(response, self.product.title)
+        self.assertNotContains(response, 'hi I should not be on this page!')
+        self.assertTemplateUsed(response, 'products/products_by_seller.html')
+
+        self.assertEqual(no_response.status_code, 404)
