@@ -1,0 +1,44 @@
+{% extends '_base.html' %}
+{% block title %}Products - {{ seller }}{% endblock %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="card mt-3">
+        <img src="https://picsum.photos/1001/180" class="card-img-top" alt="seller-card-image">
+        <div class="card-body">
+            <h5 class="display-4">{{ seller.name }}</h5>
+            <p>{{ seller.description }}</p>
+        </div>
+        <div class="card-footer">
+            <small>{{ seller.address1 }}</small>
+            <small>{{ seller.city }} ,</small>
+            <small>{{ seller.zip_code }} ,</small>
+            <small>{{ seller.country|upper}}</small>
+            <small>{{ seller.date_updated|date:"M d" }}</small>
+        </div>
+    </div>
+    <div class="row mt-3">
+        {% for product in product_list %}
+        <div class="col-lg-3 mb-3">
+            <a href="{{ product.get_absolute_url }}">
+                <div class="card h-100">
+                    <img class="card-img-top" src="https://picsum.photos/500" alt="card image">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h4 class="card-text">{{ product.title|title }}</h4>
+                            <p class="card-text">{{ product.description }}</p>
+                        </div>
+                        <h4 class="card-text d-flex justify-content-end">${{ product.price }}</h4>
+                    </div>
+                    <div class="card-footer">
+                        <small><a
+                                href="{% url 'seller_product_list' product.seller.name %}">{{ product.seller.name }}</a>
+                            |</small>
+                        <small>{{ product.date_updated|date:"M d" }}</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
