@@ -33,7 +33,8 @@
                             <h4 class="card-text d-flex justify-content-end">${{ product.price }}</h4>
                         </div>
                         <div class="card-footer">
-                            <small>{{ product.seller.name }} |</small>
+                            <small><a
+                                    href="{% url 'seller_product_list' product.seller.name %}">{{ product.seller.name }}</a>|</small>
                             <small>{{ product.date_updated|date:"M d" }}</small>
                         </div>
                     </div>
