@@ -32,5 +32,4 @@ class SellerProductList(ListView):
         # call the base context first
         context = super().get_context_data(**kwargs)
         context['seller'] = self.seller
-        logger.info('context: %s', context)
         return context
