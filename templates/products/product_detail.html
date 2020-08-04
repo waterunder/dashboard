@@ -9,13 +9,24 @@
                     <img class="card-img-top" src="https://picsum.photos/500" alt="{{ product.title|title }}">
                     <div class="card-body d-flex flex-column justify-content-between">
                         <div>
-                            <h3 class="card-text">{{ product.title|title }}</h3>
+                            <h3 class="display-4">{{ product.title|title }}</h3>
                             <p class="card-text">
                                 {{ product.description }}
                             </p>
                         </div>
                         <h4 class="card-text d-flex justify-content-end">${{ product.price }}</h4>
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"
+                            data-interval=3000>
+                            <div class="carousel-inner">
+                                {% for review in product.reviews.all %}
+                                <div class="carousel-item{% if forloop.first %} active{% endif %}">
+                                    {{ review }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
+
                     <div class="card-footer">
                         <small><a
                                 href="{% url 'seller_product_list' product.seller.name %}">{{ product.seller.name }}</a>
@@ -27,6 +38,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
