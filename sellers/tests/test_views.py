@@ -35,15 +35,17 @@ class SellerTests(TestCase):
     def test_seller_list_view(self):
         response = self.client.get(reverse('seller_list'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Test Company LLC')
-        self.assertTemplateUsed(response, 'dashboard/seller_list.html')
+        self.assertContains(response, self.seller.name.title())
+        self.assertNotContains(response, 'Hi I should not be on this page!')
+        self.assertTemplateUsed(response, 'sellers/seller_list.html')
 
     def test_seller_detail_view(self):
         response = self.client.get(self.seller.get_absolute_url())
         no_response = self.client.get('/sellers/5555')
 
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Test Company LLC')
-        self.assertTemplateUsed(response, 'dashboard/seller_detail.html')
+        self.assertContains(response, self.seller.name.title())
+        self.assertNotContains(response, 'Hi I should not be on this page')
+        self.assertTemplateUsed(response, 'sellers/seller_detail.html')
 
         self.assertEqual(no_response.status_code, 404)
