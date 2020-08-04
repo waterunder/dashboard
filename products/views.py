@@ -6,9 +6,6 @@ from django.views.generic import DetailView, ListView
 from products.models import Product
 from sellers.models import Seller
 
-\
-
-
 logger = logging.getLogger(__name__)
 
 
