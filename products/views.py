@@ -1,5 +1,6 @@
 import logging
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
@@ -37,16 +38,20 @@ class SellerProductList(ListView):
         return context
 
 
-class ProductCreate(CreateView):
+class ProductCreate(LoginRequiredMixin, CreateView):
+    model = Product
+    fields = ['title', 'description', 'price', 'active', 'in_stock', 'tags']
+
+    def form_valid(self, form):
+        form.instance.seller = self.request.user.seller
+        return super().form_valid(form)
+
+
+class ProductUpdate(LoginRequiredMixin, UpdateView):
     model = Product
     fields = ['title', 'price']
 
 
-class ProductUpdate(UpdateView):
-    model = Product
-    fields = ['title', 'price']
-
-
-class ProductDelete(DeleteView):
+class ProductDelete(LoginRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('product_list')
