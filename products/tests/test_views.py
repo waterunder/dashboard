@@ -14,7 +14,7 @@ class ProductTests(TestCase):
             password='testpass123',
         )
         self.seller = Seller.objects.create(
-            name='Test Company LLC',
+            name='Test-Company-LLC',
             description='Top worldwide experts in selling',
             email='testcompany@email.com',
             address1='Av de Mayo 855, portaldelsur, CABA',
@@ -58,10 +58,7 @@ class ProductTests(TestCase):
         self.assertEqual(no_response.status_code, 404)
 
     def test_seller_product_list_view(self):
-        products_by_seller_url = 'seller_product_list' + self.seller.name
-        print('hitting...', products_by_seller_url)
-
-        response = self.client.get(products_by_seller_url)
+        response = self.client.get(reverse('seller_product_list', args=[str(self.seller.name)]))
         no_response = self.client.get('/products/dummy-seller/')
 
         self.assertEqual(response.status_code, 200)
