@@ -2,6 +2,7 @@ import logging
 
 from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView, ListView
+from django.views.generic.edit import CreateView
 
 from products.models import Product
 from sellers.models import Seller
@@ -33,3 +34,8 @@ class SellerProductList(ListView):
         context = super().get_context_data(**kwargs)
         context['seller'] = self.seller
         return context
+
+
+class ProductCreate(CreateView):
+    model = Product
+    fields = ['title', 'price']
