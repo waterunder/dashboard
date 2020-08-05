@@ -1,8 +1,9 @@
 import logging
 
 from django.shortcuts import get_object_or_404
+from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from products.models import Product
 from sellers.models import Seller
@@ -39,3 +40,13 @@ class SellerProductList(ListView):
 class ProductCreate(CreateView):
     model = Product
     fields = ['title', 'price']
+
+
+class ProductUpdate(UpdateView):
+    model = Product
+    fields = ['title', 'price']
+
+
+class ProductDelete(DeleteView):
+    model = Product
+    success_url = reverse_lazy('product_list')
