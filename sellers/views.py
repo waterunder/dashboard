@@ -20,12 +20,19 @@ class SellerDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'seller'
     template = 'sellers/seller_detail.html'
 
+    def get_context_data(self, **kwargs):
+        # first get the default context
+        context = super().get_context_data(**kwargs)
+        # get the current seller object
+        seller = self.get_object()
+        context['seller_products'] = seller.products.all()
+        return context
+
 
 class SellerCreate(LoginRequiredMixin, CreateView):
     model = Seller
     fields = ['name', 'description', 'email', 'address1', 'address2', 'zip_code',
               'city', 'country', 'logo', 'header_image', ]
-    logger.info('inside seller create...')
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
