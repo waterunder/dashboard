@@ -49,7 +49,7 @@ class ProductCreate(LoginRequiredMixin, CreateView):
 
 class ProductUpdate(LoginRequiredMixin, UpdateView):
     model = Product
-    fields = ['title', 'price']
+    fields = ['title', 'description', 'price', 'active', 'in_stock', 'tags']
 
 
 class ProductDelete(LoginRequiredMixin, DeleteView):
