@@ -1,3 +1,5 @@
+alias ll='ls -laht'
+alias gittree='git log --graph --pretty=oneline --abbrev-commit'
 alias up='docker-compose up -d'
 alias dcps='docker-compose ps'
 alias down='docker-compose down'
