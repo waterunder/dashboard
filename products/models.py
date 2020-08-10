@@ -42,9 +42,6 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
-    class Meta:
-        ordering = ['-date_updated']
-
     def get_absolute_url(self):
         return reverse('product_detail', args=[str(self.id)])
 
