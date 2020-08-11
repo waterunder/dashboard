@@ -14,7 +14,6 @@ logger = logging.getLogger(__name__)
 
 class ProductListView(ListView):
     model = Product
-    queryset = Product.objects.order_by('-date_updated')
     context_object_name = 'product_list'
     template_name = 'products/product_list.html'
 
