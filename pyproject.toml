@@ -1,3 +1,15 @@
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+
+[tool.isort]
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+default_section = "THIRDPARTY"
+known_first_party = ["dashboard", "users", "sellers", "products", "pages"]
+known_third_party = []
+
 [tool.pylint.MESSAGE_CONTROL]
 disable="""
     bad-continuation,
@@ -20,15 +32,3 @@ max-line-length="88"
 
 [tool.pylint.BASIC]
 good-names="_,i,j,k,e,qs,pk,setUp,tearDown"
-
-[tool.black]
-line-length = 88
-include = '\.pyi?$'
-
-[tool.isort]
-line_length = 88
-multi_line_output = 3
-include_trailing_comma = true
-default_section = "THIRDPARTY"
-known_first_party = ["dashboard", "users", "sellers", "products", "pages"]
-known_third_party = ["PIL", "dj_database_url", "django", "faker"]
