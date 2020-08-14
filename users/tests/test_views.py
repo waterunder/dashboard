@@ -20,5 +20,5 @@ class SignUpPageTests(TestCase):
         self.assertNotContains(self.response, 'Hi there. I should not be here')
 
     def test_signup_page_resolves_signuppageview(self):
-        view = resolve('/users/signup/')
+        view = resolve('/users/accounts/signup/')
         self.assertEqual(view.func.__name__, SignupPageView.as_view().__name__)
