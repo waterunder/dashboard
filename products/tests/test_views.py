@@ -63,7 +63,6 @@ class ProductTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, self.seller.name)
-        self.assertContains(response, self.product.title)
         self.assertNotContains(response, 'hi I should not be on this page!')
         self.assertTemplateUsed(response, 'products/products_by_seller.html')
 

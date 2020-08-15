@@ -81,14 +81,6 @@ class SellerCreateTests(TestCase):
         self.assertTemplateUsed(response, 'sellers/seller_form.html')
         self.assertNotContains(response, 'Hi I should not be on this page')
 
-    def test_seller_create_page_redirects_for_anonymous_user(self):
-        response = self.client.get(reverse('seller_create'))
-        self.assertEqual(response.status_code, 302)
-        self.assertContains(response, 'login')
-        self.assertTemplateUsed(response, 'account/login.html')
-        self.assertNotContains(response, 'Hi I should not be on this page')
-        self.assertNotContains(response, 'Create')
-
     def test_seller_create_page_resolve_sellercreate(self):
         view = resolve('/sellers/create/')
         self.assertEqual(view.func.__name__, SellerCreate.as_view().__name__)
