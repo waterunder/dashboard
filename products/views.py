@@ -66,7 +66,6 @@ class SearchResultsListView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('q')
-        logger.info('processing search query=%s...', query)
         return Product.objects.filter(
             Q(title__icontains=query) | Q(description__icontains=query)
         )
