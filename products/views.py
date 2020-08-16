@@ -1,6 +1,7 @@
 import logging
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
@@ -56,3 +57,16 @@ class ProductUpdate(LoginRequiredMixin, UpdateView):
 class ProductDelete(LoginRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('product_list')
+
+
+class SearchResultsListView(ListView):
+    model = Product
+    context_object_name = 'product_list'
+    template_name = 'products/search_results.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        logger.info('processing search query=%s...', query)
+        return Product.objects.filter(
+            Q(title__icontains=query) | Q(description__icontains=query)
+        )
