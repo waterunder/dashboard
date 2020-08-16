@@ -18,7 +18,6 @@ def generate():
             "zip_code": fake.zipcode(),
             "city": fake.city(),
             "country": "ar",
-            "created_at": "2020-07-30T20:10:24.100Z",
             "is_mock": fake.boolean(),
             "is_active": fake.boolean(),
             "logo": fake.image_url(),
