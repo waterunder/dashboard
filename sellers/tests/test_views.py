@@ -3,7 +3,13 @@ from django.test import TestCase
 from django.urls import resolve, reverse
 
 from sellers.models import Seller
-from sellers.views import SellerCreate, SellerDetailView, SellerListView
+from sellers.views import (
+    SellerCreate,
+    SellerDelete,
+    SellerDetailView,
+    SellerListView,
+    SellerUpdate,
+)
 
 
 class SellerTests(TestCase):
@@ -112,3 +118,49 @@ class SellerCreateTests(TestCase):
     def test_seller_create_page_resolve_sellercreate(self):
         view = resolve('/sellers/create/')
         self.assertEqual(view.func.__name__, SellerCreate.as_view().__name__)
+
+    def test_seller_update_page_works_for_logged_in_user(self):
+        self.client.force_login(self.user)
+        response = self.client.get(self.seller.get_update_url())
+        no_response = self.client.get('/sellers/1234/update/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'sellers/seller_update_form.html')
+        self.assertContains(response, 'Edit')
+        self.assertNotContains(response, 'Hi I should not be on this page!')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_seller_update_page_redirectos_for_anonymous_user(self):
+        response = self.client.get(self.seller.get_update_url())
+        no_response = self.client.get('/sellers/1234/update/')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'sellers/seller_update_form.html')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_seller_update_resolve_sellerupdateview(self):
+        view = resolve(self.seller.get_update_url())
+        self.assertEqual(view.func.__name__, SellerUpdate.as_view().__name__)
+
+    def test_seller_delete_page_works_for_logged_in_user(self):
+        self.client.force_login(self.user)
+        response = self.client.get(self.seller.get_delete_url())
+        no_response = self.client.get('/sellers/1234/delete/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'sellers/seller_confirm_delete.html')
+        self.assertContains(response, 'Delete')
+        self.assertNotContains(response, 'Hi I should not be on this page!')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_seller_delete_page_redirects_for_anonymous_user(self):
+        response = self.client.get(self.seller.get_delete_url())
+        no_response = self.client.get('/sellers/1234/delete/')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'sellers/seller_confirm_delete.html')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_seller_delete_view_resolves_sellerdeleteview(self):
+        view = resolve(self.seller.get_delete_url())
+        self.assertEqual(view.func.__name__, SellerDelete.as_view().__name__)
