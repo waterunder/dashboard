@@ -38,11 +38,15 @@
                                 </div>
                                 <h4 class="card-text d-flex justify-content-end">${{ product.price }}</h4>
                             </div>
-                            <div class="card-footer">
+                            <div class="card-footer d-flex justify-content-lg-between">
                                 <small><a
                                         href="{% url 'seller_product_list' product.seller.name %}">{{ product.seller.name }}</a>
-                                    |</small>
-                                <small>{{ product.date_updated|date:"M d" }}</small>
+                                    |{{ product.date_updated|date:"M d" }}</small>
+                                <div>
+                                    <a href="{{ product.get_update_url  }}"><i
+                                            class="mr-2 zmdi zmdi-edit fa-lg"></i></a>
+                                    <a href="{{ product.get_delete_url }}"><i class="zmdi zmdi-delete fa-lg"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
