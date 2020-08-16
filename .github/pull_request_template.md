@@ -1,8 +1,8 @@
-# Description
+## Intro
 
-[XXX-000]
+This PR solves ... problem
 
-## Summary
+## Issue [XXX-000]
 
 ## Dependencies
 
