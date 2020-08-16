@@ -1,26 +1,24 @@
 version: '3.7'
 
-services: 
+services:
     web:
         build: .
         command: gunicorn main.wsgi -b 0.0.0.0:8000
-        environment: 
-            - SECRET_KEY=7k2kf1_f-7*_ycn+^n8y6nx!99)g$$j^1--tfl1#!k4*&d0#+&&
-            - DEBUG=1
+        env_file:
+            - .env
         volumes:
             - .:/code
-        ports: 
+        ports:
             - 8000:8000
-        depends_on: 
+        depends_on:
             - db
-    
+
     db:
         image: postgres:11
-        environment: 
+        environment:
             POSTGRES_PASSWORD: postgres
-        volumes: 
+        volumes:
             - postgres_data:/var/lib/postgresql/data/
-volumes: 
+volumes:
     postgres_data:
-        
-            
+
