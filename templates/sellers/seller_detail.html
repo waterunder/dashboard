@@ -4,7 +4,7 @@
 <div class="content-wrapper">
     <div class="card shadow">
         <img class="card-img-top" src="https://picsum.photos/1001/200" alt="{{ seller.title|title }}">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between">
             <ul class="nav nav-tabs card-header-tabs" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a href="#pills-home" class="nav-link active" id="pills-home-tab" data-toggle="pill">Home</a>
@@ -17,6 +17,15 @@
                 </li>
                 <li class="nav-item">
                     <a href="#pills-about" class="nav-link" id="pills-about-tab" data-toggle="pill">About</a>
+                </li>
+
+            </ul>
+            <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                <li class="nav-item">
+                    <a href="{{ seller.get_update_url  }}" class="nav-link"><i class="zmdi zmdi-edit fa-lg"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ seller.get_delete_url }}" class="nav-link"><i class="zmdi zmdi-delete fa-lg"></i></a>
                 </li>
             </ul>
         </div>
@@ -38,11 +47,15 @@
                                 </div>
                                 <h4 class="card-text d-flex justify-content-end">${{ product.price }}</h4>
                             </div>
-                            <div class="card-footer">
+                            <div class="card-footer d-flex justify-content-lg-between">
                                 <small><a
                                         href="{% url 'seller_product_list' product.seller.name %}">{{ product.seller.name }}</a>
-                                    |</small>
-                                <small>{{ product.date_updated|date:"M d" }}</small>
+                                    |{{ product.date_updated|date:"M d" }}</small>
+                                <div>
+                                    <a href="{{ product.get_update_url  }}"><i
+                                            class="mr-2 zmdi zmdi-edit fa-lg"></i></a>
+                                    <a href="{{ product.get_delete_url }}"><i class="zmdi zmdi-delete fa-lg"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>

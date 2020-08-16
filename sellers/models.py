@@ -46,3 +46,9 @@ class Seller(models.Model):
 
     def get_absolute_url(self):
         return reverse('seller_detail', args=[str(self.id)])
+
+    def get_update_url(self):
+        return reverse('seller_update', args=[str(self.id)])
+
+    def get_delete_url(self):
+        return reverse('seller_delete', args=[str(self.id)])

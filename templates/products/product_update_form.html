@@ -1,12 +1,12 @@
 {% extends '_base.html' %}
 {% load crispy_forms_tags %}
-{% block title %}Create{% endblock title %}
+{% block title %}Edit{% endblock title %}
 {% block content %}
 <div class="content-wrapper">
     <div class="container-fluid">
         <div class="row mt-3 justify-content-center">
             <div class="col-lg-4 mb-3">
-                <p class="display-4">Create</p>
+                <p class="display-4">Edit</p>
                 <form action="" method="post">
                     {% csrf_token %}
                     {{ form|crispy }}

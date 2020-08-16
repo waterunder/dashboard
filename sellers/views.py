@@ -1,8 +1,9 @@
 import logging
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from sellers.models import Seller
 
@@ -38,3 +39,16 @@ class SellerCreate(LoginRequiredMixin, CreateView):
         form.instance.owner = self.request.user
         logger.info('seller owner %s', form.instance.owner)
         return super().form_valid(form)
+
+
+class SellerUpdate(LoginRequiredMixin, UpdateView):
+    model = Seller
+    fields = ['name', 'description', 'email', 'address1', 'address2', 'zip_code',
+              'city', 'country', 'logo', 'header_image', ]
+
+    template_name_suffix = '_update_form'
+
+
+class SellerDelete(LoginRequiredMixin, DeleteView):
+    model = Seller
+    success_url = reverse_lazy('home')

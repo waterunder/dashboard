@@ -50,6 +50,7 @@ class ProductCreate(LoginRequiredMixin, CreateView):
 class ProductUpdate(LoginRequiredMixin, UpdateView):
     model = Product
     fields = ['title', 'description', 'price', 'active', 'in_stock', 'tags']
+    template_name_suffix = '_update_form'
 
 
 class ProductDelete(LoginRequiredMixin, DeleteView):

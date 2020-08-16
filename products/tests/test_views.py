@@ -1,8 +1,15 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
-from django.urls import reverse
+from django.urls import resolve, reverse
 
 from products.models import Product, Review
+from products.views import (
+    ProductDelete,
+    ProductDetailView,
+    ProductListView,
+    ProductUpdate,
+    SellerProductList,
+)
 from sellers.models import Seller
 
 
@@ -46,6 +53,10 @@ class ProductTests(TestCase):
         self.assertContains(response, 'Kepler')
         self.assertTemplateUsed(response, 'products/product_list.html')
 
+    def test_product_list_resolves_productlistview(self):
+        view = resolve(reverse('product_list'))
+        self.assertEqual(view.func.__name__, ProductListView.as_view().__name__)
+
     def test_product_detail_view(self):
         response = self.client.get(self.product.get_absolute_url())
         no_response = self.client.get('/products/1234/')
@@ -54,8 +65,11 @@ class ProductTests(TestCase):
         self.assertContains(response, 'Kepler')
         self.assertContains(response, 'highly recommended!')
         self.assertTemplateUsed(response, 'products/product_detail.html')
-
         self.assertEqual(no_response.status_code, 404)
+
+    def test_product_detail_resolve_productdetailview(self):
+        view = resolve(self.product.get_absolute_url())
+        self.assertEqual(view.func.__name__, ProductDetailView.as_view().__name__)
 
     def test_seller_product_list_view(self):
         response = self.client.get(reverse('seller_product_list', args=[str(self.seller.name)]))
@@ -65,5 +79,55 @@ class ProductTests(TestCase):
         self.assertContains(response, self.seller.name)
         self.assertNotContains(response, 'hi I should not be on this page!')
         self.assertTemplateUsed(response, 'products/products_by_seller.html')
-
         self.assertEqual(no_response.status_code, 404)
+
+    def test_seller_product_list_resolves_sellerproductlistview(self):
+        view = resolve(reverse('seller_product_list', args=[str(self.seller.name)]))
+        self.assertEqual(view.func.__name__, SellerProductList.as_view().__name__)
+
+    def test_product_update_page_works_for_logged_in_user(self):
+        self.client.force_login(self.user)
+        response = self.client.get(self.product.get_update_url())
+        no_response = self.client.get('/products/1234/update/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'products/product_update_form.html')
+        self.assertContains(response, 'Edit')
+        self.assertNotContains(response, 'Hi I should not be on this page')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_product_update_page_redirects_for_anonymous_user(self):
+        response = self.client.get(self.product.get_update_url())
+        no_response = self.client.get('/products/1234/update/')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'products/product_update_form.html')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_product_update_resolves_product_update_view(self):
+        view = resolve(self.product.get_update_url())
+        self.assertEqual(view.func.__name__, ProductUpdate.as_view().__name__)
+
+    def test_product_delete_page_works_for_logged_in_user(self):
+        self.client.force_login(self.user)
+        response = self.client.get(self.product.get_delete_url())
+        no_response = self.client.get('/products/1243/delete/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'products/product_confirm_delete.html')
+        self.assertContains(response, 'delete')
+        self.assertContains(response, 'Confirm')
+        self.assertNotContains(response, 'Hi I should not be on this page!')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_product_delete_page_redirects_for_anonymous_user(self):
+        response = self.client.get(self.product.get_delete_url())
+        no_response = self.client.get('/products/1243/delete/')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'products/product_confirm_delete.html')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_product_delete_resolves_product_delete_view(self):
+        view = resolve(self.product.get_delete_url())
+        self.assertEqual(view.func.__name__, ProductDelete.as_view().__name__)
