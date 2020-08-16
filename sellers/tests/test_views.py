@@ -24,15 +24,6 @@ class SellerTests(TestCase):
             owner=self.user,
         )
 
-    def test_seller_listing(self):
-        self.assertEqual(f'{self.seller.name}', 'Test Company LLC')
-        self.assertEqual(f'{self.seller.description}', 'Top worldwide experts in selling')
-        self.assertEqual(f'{self.seller.email}', 'testcompany@email.com')
-        self.assertEqual(f'{self.seller.address1}', 'Av de Mayo 855, portaldelsur, CABA')
-        self.assertEqual(f'{self.seller.zip_code}', '1086')
-        self.assertEqual(f'{self.seller.city}', 'Buenos Aires')
-        self.assertEqual(f'{self.seller.country}', 'uk')
-
     def test_seller_list_view_works_for_loggedin_user(self):
         self.client.force_login(self.user)
         response = self.client.get(reverse('seller_list'))
