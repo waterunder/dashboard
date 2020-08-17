@@ -8,6 +8,7 @@ from products.views import (
     ProductDetailView,
     ProductListView,
     ProductUpdate,
+    SearchResultsListView,
     SellerProductList,
 )
 from sellers.models import Seller
@@ -131,3 +132,17 @@ class ProductTests(TestCase):
     def test_product_delete_resolves_product_delete_view(self):
         view = resolve(self.product.get_delete_url())
         self.assertEqual(view.func.__name__, ProductDelete.as_view().__name__)
+
+    def test_search_results_page_works_for_anonymous_user(self):
+        response = self.client.get(reverse('search_results'), {'q': 'count'})
+        no_response = self.client.get('/search/', {'q': 'count'})
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'products/search_results.html')
+        self.assertContains(response, 'Search')
+        self.assertNotContains(response, 'Hi I should not be on this page!')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_search_results_resolve_searchresultsview(self):
+        view = resolve('/products/search/')
+        self.assertEqual(view.func.__name__, SearchResultsListView.as_view().__name__)
