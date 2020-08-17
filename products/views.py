@@ -15,6 +15,7 @@ logger = logging.getLogger(__name__)
 
 class ProductListView(ListView):
     model = Product
+    paginate_by = 8
     context_object_name = 'product_list'
     template_name = 'products/product_list.html'
 
@@ -27,6 +28,7 @@ class ProductDetailView(DetailView):
 
 class SellerProductList(ListView):
     template_name = 'products/products_by_seller.html'
+    paginate_by = 8
 
     def get_queryset(self):
         self.seller = get_object_or_404(Seller, name=self.kwargs['seller'])
@@ -61,6 +63,7 @@ class ProductDelete(LoginRequiredMixin, DeleteView):
 
 class SearchResultsListView(ListView):
     model = Product
+    paginate_by = 8
     context_object_name = 'product_list'
     template_name = 'products/search_results.html'
 
