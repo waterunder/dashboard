@@ -1,6 +1,6 @@
 import logging
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
@@ -13,22 +13,26 @@ from sellers.models import Seller
 logger = logging.getLogger(__name__)
 
 
-class ProductListView(ListView):
+class ProductListView(LoginRequiredMixin, ListView):
     model = Product
     paginate_by = 8
     context_object_name = 'product_list'
     template_name = 'products/product_list.html'
+    login_url = 'account_login'
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Product
     context_object_name = 'product'
     template_name = 'products/product_detail.html'
+    login_url = 'account_login'
+    permission_required = 'products.special_status'
 
 
-class SellerProductList(ListView):
+class SellerProductList(LoginRequiredMixin, ListView):
     template_name = 'products/products_by_seller.html'
     paginate_by = 8
+    login_url = 'account_login'
 
     def get_queryset(self):
         self.seller = get_object_or_404(Seller, name=self.kwargs['seller'])
@@ -61,11 +65,12 @@ class ProductDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('product_list')
 
 
-class SearchResultsListView(ListView):
+class SearchResultsListView(LoginRequiredMixin, ListView):
     model = Product
     paginate_by = 8
     context_object_name = 'product_list'
     template_name = 'products/search_results.html'
+    login_url = 'account_login'
 
     def get_queryset(self):
         query = self.request.GET.get('q')

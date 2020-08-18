@@ -39,6 +39,11 @@ class Product(models.Model):
     seller = models.ForeignKey(Seller, on_delete=models.CASCADE, related_name='products')
     tags = models.ManyToManyField(ProductTag, blank=True, related_name='products')
 
+    class Meta:
+        permissions = [
+            ('special_status', 'Can see all products'),
+        ]
+
     def __str__(self):
         return self.title
 
