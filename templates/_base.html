@@ -42,18 +42,16 @@
         <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
             <div class="brand-logo">
                 <a href="{% url 'dashboard' %}">
-                    <img src="{% static 'dashboard/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
-                    <h5 class="logo-text">Dive</h5>
+                    <i class="zmdi zmdi-boat fa-3x"></i>
                 </a>
             </div>
             <ul class="sidebar-menu do-nicescrol">
                 <li class="sidebar-header">Main Navigation</li>
                 <li>
                     <a href="{% url 'dashboard' %}">
-                        <i class="zmdi zmdi-view-dashboard"></i> <span>Home</span>
+                        <i class="zmdi zmdi-view-dashboard"></i><span>Home</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="{% url 'product_list' %}">
                         <i class="zmdi zmdi-assignment"></i> <span>Products</span>
@@ -267,7 +265,9 @@
         <footer class="footer">
             <div class="container">
                 <div class="text-center">
-                    The Dive Project
+                    <a href="{% url 'dashboard' %}">
+                        <i class="zmdi zmdi-boat fa-3x"></i>
+                    </a>
                 </div>
             </div>
         </footer>
