@@ -1,0 +1,98 @@
+{% load static %}
+{% load i18n %}
+{% load account %}
+{% load socialaccount %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Signup</title>
+    <!-- loader-->
+    <link href="{% static 'dashboard/css/pace.min.css' %}" rel="stylesheet" />
+    <script src="{% static 'dashboard/js/pace.min.js' %}"></script>
+    <!--favicon-->
+    <link rel="icon" href="{% static 'dashboard/images/favicon.ico' %}" type="image/x-icon">
+    <!-- Bootstrap core CSS-->
+    <link href="{% static 'dashboard/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="{% static 'dashboard/css/animate.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="{% static 'dashboard/css/icons.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Custom Style-->
+    <link href="{% static 'dashboard/css/app-style.css' %}" rel="stylesheet" />
+
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- start loader -->
+    <div id="pageloader-overlay" class="visible incoming">
+        <div class="loader-wrapper-outer">
+            <div class="loader-wrapper-inner">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div>
+    <!-- end loader -->
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <div class="loader-wrapper">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="card card-authentication1 mx-auto my-5">
+            <div class="card-body">
+                <div class="card-content p-2">
+                    <div class="text-center">
+                        <a href="{% url 'dashboard' %}"><i class="zmdi zmdi-boat fa-4x"></i></a>
+                    </div>
+                    <div class="card-title text-uppercase text-center py-3">Sign up</div>
+                    <p class="card-text">
+                        {% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are
+                        about to use your {{provider_name}} account to login to
+                        {{site_name}}.</p>
+                    <p>As a final step, please complete the following form:{% endblocktrans %}</p>
+                    <form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                        <button type="submit" class="btn btn-light btn-block">{% trans "Sign Up" %} &raquo;</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card-footer text-center py-3">
+                <p class="text-warning mb-0">Already have an account? <a href="{% url 'account_login' %}">Log In
+                        here</a></p>
+            </div>
+        </div>
+    </div>
+    <!--wrapper-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'dashboard/js/jquery.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/popper.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+
+    <!-- sidebar-menu js -->
+    <script src="{% static 'dashboard/js/sidebar-menu.js' %}"></script>
+
+    <!-- Custom scripts -->
+    <script src="{% static 'dashboard/js/app-script.js' %}"></script>
+
+</body>
+
+</html>
