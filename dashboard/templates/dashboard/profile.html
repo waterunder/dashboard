@@ -180,8 +180,9 @@
                 <!--/row-->
               </div>
               <div class="tab-pane" id="messages">
-                <div class="alert alert-info alert-dismissible" role="alert">
-                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                      aria-hidden="true">&times;</span></button>
                   <div class="alert-icon">
                     <i class="icon-info"></i>
                   </div>
@@ -227,11 +228,6 @@
                 </div>
               </div>
               <div class="tab-pane" id="edit">
-                <form action="" method="post">
-                  {% csrf_token %}
-                  {{ form|crispy }}
-                  <button type="submit" class="btn btn-light btn-block">Save</button>
-                </form>
                 <form>
                   <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">First name</label>
