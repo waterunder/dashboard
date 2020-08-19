@@ -48,17 +48,39 @@ class ProductTests(TestCase):
         self.assertEqual(f'{self.product.description}', 'The first exoplanet found')
         self.assertEqual(f'{self.product.price}', '250.00')
 
-    def test_product_list_view(self):
+    def test_product_list_view_redirects_for_anonymous_user(self):
         response = self.client.get(reverse('product_list'))
+        no_response = self.client.get('/product/')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'products/product_list.html')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_product_list_view_works_for_logged_in_user(self):
+        self.client.force_login(self.user)
+        response = self.client.get(reverse('product_list'))
+        no_response = self.client.get('/product/')
+
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Kepler')
         self.assertTemplateUsed(response, 'products/product_list.html')
+        self.assertContains(response, 'Products')
+        self.assertNotContains(response, 'Hi I should not be on this page!')
+        self.assertEqual(no_response.status_code, 404)
 
     def test_product_list_resolves_productlistview(self):
         view = resolve(reverse('product_list'))
         self.assertEqual(view.func.__name__, ProductListView.as_view().__name__)
 
-    def test_product_detail_view(self):
+    def test_product_detail_view_redirects_for_anonymous_user(self):
+        response = self.client.get(self.product.get_absolute_url())
+        no_response = self.client.get('/product/1234/')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'products/product_detail.html')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_product_detail_view_works_for_logged_in_user(self):
+        self.client.force_login(self.user)
         response = self.client.get(self.product.get_absolute_url())
         no_response = self.client.get('/products/1234/')
 
@@ -72,7 +94,16 @@ class ProductTests(TestCase):
         view = resolve(self.product.get_absolute_url())
         self.assertEqual(view.func.__name__, ProductDetailView.as_view().__name__)
 
-    def test_seller_product_list_view(self):
+    def test_seller_product_list_view_redirects_for_anonymous_user(self):
+        response = self.client.get(reverse('seller_product_list', args=[str(self.seller.name)]))
+        no_response = self.client.get('/product/dummy-seller/')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'products/products_by_seller.html')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_seller_product_list_view_works_for_logged_in_user(self):
+        self.client.force_login(self.user)
         response = self.client.get(reverse('seller_product_list', args=[str(self.seller.name)]))
         no_response = self.client.get('/products/dummy-seller/')
 
@@ -133,7 +164,8 @@ class ProductTests(TestCase):
         view = resolve(self.product.get_delete_url())
         self.assertEqual(view.func.__name__, ProductDelete.as_view().__name__)
 
-    def test_search_results_page_works_for_anonymous_user(self):
+    def test_search_results_page_works_for_logged_in_user(self):
+        self.client.force_login(self.user)
         response = self.client.get(reverse('search_results'), {'q': 'count'})
         no_response = self.client.get('/search/', {'q': 'count'})
 
@@ -141,6 +173,14 @@ class ProductTests(TestCase):
         self.assertTemplateUsed(response, 'products/search_results.html')
         self.assertContains(response, 'Search')
         self.assertNotContains(response, 'Hi I should not be on this page!')
+        self.assertEqual(no_response.status_code, 404)
+
+    def test_search_results_page_redirects_for_anonymous_user(self):
+        response = self.client.get(reverse('search_results'), {'q': 'count'})
+        no_response = self.client.get('/search/', {'q': 'count'})
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'products/search_results.html')
         self.assertEqual(no_response.status_code, 404)
 
     def test_search_results_resolve_searchresultsview(self):

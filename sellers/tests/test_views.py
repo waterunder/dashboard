@@ -66,7 +66,7 @@ class SellerTests(TestCase):
 
     def test_seller_detail_view_redirects_for_anonymous_user(self):
         response = self.client.get(self.seller.get_absolute_url())
-        no_response = self.client.get('/sellers/1243/')
+        no_response = self.client.get('/sellers/1234/')
 
         self.assertEqual(response.status_code, 302)
         self.assertTemplateNotUsed(response, 'sellers/seller_detail.html')

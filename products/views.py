@@ -1,6 +1,7 @@
 import logging
 
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
@@ -21,12 +22,11 @@ class ProductListView(LoginRequiredMixin, ListView):
     login_url = 'account_login'
 
 
-class ProductDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
+class ProductDetailView(LoginRequiredMixin, DetailView):
     model = Product
     context_object_name = 'product'
     template_name = 'products/product_detail.html'
     login_url = 'account_login'
-    permission_required = 'products.special_status'
 
 
 class SellerProductList(LoginRequiredMixin, ListView):
@@ -45,9 +45,10 @@ class SellerProductList(LoginRequiredMixin, ListView):
         return context
 
 
-class ProductCreate(LoginRequiredMixin, CreateView):
+class ProductCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Product
     fields = ['title', 'description', 'price', 'active', 'in_stock', 'tags']
+    success_message = "%(title)s was created successfully"
 
     def form_valid(self, form):
         form.instance.seller = self.request.user.seller
