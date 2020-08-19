@@ -65,7 +65,8 @@
                     </form>
                     <div class="text-center mt-3">Sign In With</div>
                     <div class="d-flex mt-4 justify-content-between">
-                        <a href="" class="btn btn-lg btn-light btn-round"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a href="{% provider_login_url 'facebook' %}" class="btn btn-lg btn-light btn-round"><i
+                                class="fa fa-facebook fa-lg"></i></a>
                         <a href="{% provider_login_url 'google' %}" class="btn btn-lg btn-light btn-round"><i
                                 class="fa fa-google fa-lg"></i></a>
                         <a href="{% provider_login_url 'twitter' %}" class="btn btn-lg btn-light btn-round"><i
