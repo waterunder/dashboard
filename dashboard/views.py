@@ -1,3 +1,4 @@
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 
@@ -28,9 +29,10 @@ class ProfilePageView(TemplateView):
     template_name = 'dashboard/profile.html'
 
 
-class FeedbackFormView(FormView):
+class FeedbackFormView(SuccessMessageMixin, FormView):
     template_name = 'dashboard/feedback.html'
     form_class = FeedbackForm
+    success_message = 'Feedback sent successfully!'
     success_url = '/'
 
     def form_valid(self, form):
