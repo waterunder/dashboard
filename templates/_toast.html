@@ -1,0 +1,22 @@
+<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 1px;">
+    <!-- Position it -->
+    <div style="position: absolute; top: 15px; right: 0; min-width: 350px;">
+        <!-- Then put toasts within -->
+        {% if messages %}
+        {% for message in messages %}
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay=5000>
+            <div class="toast-header">
+                <i class="zmdi zmdi-assignment-o"></i>
+                <strong class="mr-auto ml-3">Message</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body text-dark">
+                {{ message }}
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
