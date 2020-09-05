@@ -5,7 +5,7 @@
 
     EasyPieChart.prototype.init = function() {
     	//initializing various types of easy pie charts
-		
+
     	$('.easy-pie-chart-1').easyPieChart({
 			easing: 'easeOutBounce',
 			barColor : '#ffffff',

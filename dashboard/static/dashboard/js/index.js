@@ -2,9 +2,9 @@ $(function() {
     "use strict";
 
      // chart 1
-	 
+
 		  var ctx = document.getElementById('chart1').getContext('2d');
-		
+
 			var myChart = new Chart(ctx, {
 				type: 'line',
 				data: {
@@ -30,13 +30,13 @@ $(function() {
 				legend: {
 				  display: false,
 				  labels: {
-					fontColor: '#ddd',  
+					fontColor: '#ddd',
 					boxWidth:40
 				  }
 				},
 				tooltips: {
 				  displayColors:false
-				},	
+				},
 			  scales: {
 				  xAxes: [{
 					ticks: {
@@ -61,9 +61,9 @@ $(function() {
 				 }
 
 			 }
-			});  
-		
-		
+			});
+
+
     // chart 2
 
 		var ctx = document.getElementById("chart2").getContext('2d');
@@ -85,10 +85,10 @@ $(function() {
 			options: {
 				maintainAspectRatio: false,
 			   legend: {
-				 position :"bottom",	
+				 position :"bottom",
 				 display: false,
 				    labels: {
-					  fontColor: '#ddd',  
+					  fontColor: '#ddd',
 					  boxWidth:15
 				   }
 				}
@@ -98,9 +98,8 @@ $(function() {
 				}
 			   }
 			});
-		
 
-		
-		
-   });	 
-   
+
+
+
+   });
