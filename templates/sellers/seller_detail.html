@@ -1,88 +1,87 @@
 {% extends '_base.html' %}
 {% block title %}{{ seller.title|title }}{% endblock title %}
 {% block content %}
-<div class="content-wrapper">
-    <div class="card shadow">
-        <img class="card-img-top" src="https://picsum.photos/1001/200" alt="{{ seller.title|title }}">
-        <div class="card-header d-flex justify-content-between">
-            <ul class="nav nav-tabs card-header-tabs" id="pills-tab" role="tablist">
-                <li class="nav-item">
-                    <a href="#pills-home" class="nav-link active" id="pills-home-tab" data-toggle="pill">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pills-products" class="nav-link" id="pills-products-tab" data-toggle="pill">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pills-store" class="nav-link" id="pills-store-tab" data-toggle="pill">Store</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pills-about" class="nav-link" id="pills-about-tab" data-toggle="pill">About</a>
-                </li>
 
-            </ul>
-            <ul class="nav nav-tabs card-header-tabs" role="tablist">
-                <li class="nav-item">
-                    <a href="{{ seller.get_update_url  }}" class="nav-link"><i class="zmdi zmdi-edit fa-lg"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ seller.get_delete_url }}" class="nav-link"><i class="zmdi zmdi-delete fa-lg"></i></a>
-                </li>
-            </ul>
+<div class="card shadow">
+    <img class="card-img-top" src="https://picsum.photos/1001/200" alt="{{ seller.title|title }}">
+    <div class="card-header d-flex justify-content-between">
+        <ul class="nav nav-tabs card-header-tabs" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a href="#pills-home" class="nav-link active" id="pills-home-tab" data-toggle="pill">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="#pills-products" class="nav-link" id="pills-products-tab" data-toggle="pill">Products</a>
+            </li>
+            <li class="nav-item">
+                <a href="#pills-store" class="nav-link" id="pills-store-tab" data-toggle="pill">Store</a>
+            </li>
+            <li class="nav-item">
+                <a href="#pills-about" class="nav-link" id="pills-about-tab" data-toggle="pill">About</a>
+            </li>
+
+        </ul>
+        <ul class="nav nav-tabs card-header-tabs" role="tablist">
+            <li class="nav-item">
+                <a href="{{ seller.get_update_url  }}" class="nav-link"><i class="zmdi zmdi-edit fa-lg"></i></a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ seller.get_delete_url }}" class="nav-link"><i class="zmdi zmdi-delete fa-lg"></i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         </div>
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-            </div>
-            <div class="tab-pane fade" id="pills-products" role="tabpanel" aria-labelledby="pills-products-tab">
-                <div class="row mt-3">
-                    {% for product in seller_products %}
-                    <div class="col-lg-3 mb-3">
-                        <div class="card h-100">
-                            <a href="{{ product.get_absolute_url }}">
-                                <img class="card-img-top" src="https://picsum.photos/500" alt="card image">
-                            </a>
-                            <div class="card-body d-flex flex-column justify-content-between">
-                                <div>
-                                    <h4 class="card-text">{{ product.title|title }}</h4>
-                                    <p class="card-text">{{ product.description }}</p>
-                                </div>
-                                <h4 class="card-text d-flex justify-content-end">${{ product.price }}</h4>
+        <div class="tab-pane fade" id="pills-products" role="tabpanel" aria-labelledby="pills-products-tab">
+            <div class="row mt-3">
+                {% for product in seller_products %}
+                <div class="col-lg-3 mb-3">
+                    <div class="card h-100">
+                        <a href="{{ product.get_absolute_url }}">
+                            <img class="card-img-top" src="https://picsum.photos/500" alt="card image">
+                        </a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <h4 class="card-text">{{ product.title|title }}</h4>
+                                <p class="card-text">{{ product.description }}</p>
                             </div>
-                            <div class="card-footer d-flex justify-content-lg-between">
-                                <small><a
-                                        href="{% url 'seller_product_list' product.seller.name %}">{{ product.seller.name }}</a>
-                                    |{{ product.date_updated|date:"M d" }}</small>
-                                <div>
-                                    <a href="{{ product.get_update_url  }}"><i
-                                            class="mr-2 zmdi zmdi-edit fa-lg"></i></a>
-                                    <a href="{{ product.get_delete_url }}"><i class="zmdi zmdi-delete fa-lg"></i></a>
-                                </div>
+                            <h4 class="card-text d-flex justify-content-end">${{ product.price }}</h4>
+                        </div>
+                        <div class="card-footer d-flex justify-content-lg-between">
+                            <small><a
+                                    href="{% url 'seller_product_list' product.seller.name %}">{{ product.seller.name }}</a>
+                                |{{ product.date_updated|date:"M d" }}</small>
+                            <div>
+                                <a href="{{ product.get_update_url  }}"><i class="mr-2 zmdi zmdi-edit fa-lg"></i></a>
+                                <a href="{{ product.get_delete_url }}"><i class="zmdi zmdi-delete fa-lg"></i></a>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
+                {% endfor %}
             </div>
-            <div class="tab-pane fade" id="pills-store" role="tabpanel" aria-labelledby="pills-store-tab">
-            </div>
-            <div class="tab-pane fade" id="pills-about" role="tabpanel" aria-labelledby="pills-about-tab">
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <h3 class="card-text">{{ seller.name|title }}</h3>
-                        <p class="card-text">{{ seller.description }}</p>
-                    </div>
-                    <h4 class="card-text d-flex justify-content-end">${{ seller.price }}</h4>
+        </div>
+        <div class="tab-pane fade" id="pills-store" role="tabpanel" aria-labelledby="pills-store-tab">
+        </div>
+        <div class="tab-pane fade" id="pills-about" role="tabpanel" aria-labelledby="pills-about-tab">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <h3 class="card-text">{{ seller.name|title }}</h3>
+                    <p class="card-text">{{ seller.description }}</p>
                 </div>
+                <h4 class="card-text d-flex justify-content-end">${{ seller.price }}</h4>
             </div>
-
         </div>
 
-        <div class="card-footer">
-            <small>{{ seller.address1 }}</small>
-            <small>{{ seller.city }} ,</small>
-            <small>{{ seller.zip_code }} ,</small>
-            <small>{{ seller.country|upper}}</small>
-            <small>{{ seller.date_updated|date:"M d" }}</small>
-        </div>
+    </div>
+
+    <div class="card-footer">
+        <small>{{ seller.address1 }}</small>
+        <small>{{ seller.city }} ,</small>
+        <small>{{ seller.zip_code }} ,</small>
+        <small>{{ seller.country|upper}}</small>
+        <small>{{ seller.date_updated|date:"M d" }}</small>
     </div>
 </div>
+
 {% endblock content %}
