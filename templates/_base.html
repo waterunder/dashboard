@@ -217,8 +217,13 @@
             </nav>
         </header>
         <!--End topbar header-->
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                {% include '_alert.html' %}
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
 
-        {% block content %}{% endblock content %}
         <!--Start Back To Top Button-->
         <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
         <!--End Back To Top Button-->

@@ -1,83 +1,83 @@
 {% extends '_base.html' %}
 {% block title %}Products - {{ seller }}{% endblock %}
 {% block content %}
-<div class="content-wrapper">
-    <div class="card mt-3">
-        <img src="https://picsum.photos/1001/180" class="card-img-top" alt="seller-card-image">
-        <div class="card-body">
-            <h5 class="display-4">{{ seller.name }}</h5>
-            <p>{{ seller.description }}</p>
-        </div>
-        <div class="card-footer">
-            <small>{{ seller.address1 }}</small>
-            <small>{{ seller.city }} ,</small>
-            <small>{{ seller.zip_code }} ,</small>
-            <small>{{ seller.country|upper}}</small>
-            <small>{{ seller.date_updated|date:"M d" }}</small>
-        </div>
+
+<div class="card mt-3">
+    <img src="https://picsum.photos/1001/180" class="card-img-top" alt="seller-card-image">
+    <div class="card-body">
+        <h5 class="display-4">{{ seller.name }}</h5>
+        <p>{{ seller.description }}</p>
     </div>
-    <div class="row mt-3">
-        {% for product in product_list %}
-        <div class="col-lg-3 mb-3">
-            <div class="card h-100">
-                <a href="{{ product.get_absolute_url }}">
-                    <img class="card-img-top" src="https://picsum.photos/500" alt="card image">
-                </a>
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <h4 class="card-text">{{ product.title|title }}</h4>
-                        <p class="card-text">{{ product.description }}</p>
-                    </div>
-                    <h4 class="card-text d-flex justify-content-end">${{ product.price }}</h4>
+    <div class="card-footer">
+        <small>{{ seller.address1 }}</small>
+        <small>{{ seller.city }} ,</small>
+        <small>{{ seller.zip_code }} ,</small>
+        <small>{{ seller.country|upper}}</small>
+        <small>{{ seller.date_updated|date:"M d" }}</small>
+    </div>
+</div>
+<div class="row mt-3">
+    {% for product in product_list %}
+    <div class="col-lg-3 mb-3">
+        <div class="card h-100">
+            <a href="{{ product.get_absolute_url }}">
+                <img class="card-img-top" src="https://picsum.photos/500" alt="card image">
+            </a>
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <h4 class="card-text">{{ product.title|title }}</h4>
+                    <p class="card-text">{{ product.description }}</p>
                 </div>
-                <div class="card-footer">
-                    <small><a href="{% url 'seller_product_list' product.seller.name %}">{{ product.seller.name }}</a>
-                        |</small>
-                    <small>{{ product.date_updated|date:"M d" }}</small>
-                </div>
+                <h4 class="card-text d-flex justify-content-end">${{ product.price }}</h4>
+            </div>
+            <div class="card-footer">
+                <small><a href="{% url 'seller_product_list' product.seller.name %}">{{ product.seller.name }}</a>
+                    |</small>
+                <small>{{ product.date_updated|date:"M d" }}</small>
             </div>
         </div>
-        {% endfor %}
     </div>
-    <!-- Paginator -->
-    <nav aria-label="Page navigation">
-        <ul class="pagination pagination-separate justify-content-end">
-            {% if page_obj.has_previous %}
-            <li class="page-item">
-                <a class="page-link" href="?page=1" aria-label="First">
-                    <span aria-hidden="true">First</span>
-                    <span class="sr-only">First</span>
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </li>
-            {% endif %}
-            <li class="page-item">
-                <p class="page-link">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-                </p>
-            </li>
-            {% if page_obj.has_next %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
-                    <span aria-hidden="true">Last</span>
-                    <span class="sr-only">Last</span>
-                </a>
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
-    <!-- End Paginator -->
-
+    {% endfor %}
 </div>
+<!-- Paginator -->
+<nav aria-label="Page navigation">
+    <ul class="pagination pagination-separate justify-content-end">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1" aria-label="First">
+                <span aria-hidden="true">First</span>
+                <span class="sr-only">First</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        {% endif %}
+        <li class="page-item">
+            <p class="page-link">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </p>
+        </li>
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+                <span aria-hidden="true">Last</span>
+                <span class="sr-only">Last</span>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+<!-- End Paginator -->
+
+
 {% endblock content %}
