@@ -119,9 +119,6 @@
                 </li>
                 <li><a href="{% url 'contact_us' %}"><i class="zmdi zmdi-share"></i> <span>Contact Us</span></a>
                 </li>
-                <li><a href="{% url 'feedback' %}"><i class="zmdi zmdi-comment-alt-text"></i>
-                        <span>Feedback</span></a>
-                </li>
             </ul>
         </div>
         <!--End sidebar-wrapper-->
@@ -267,6 +264,11 @@
         <!--end color switcher-->
     </div>
     <!--End wrapper-->
+    <a href="{% url 'feedback' %}">
+        <button type="submit" class="btn fixed-bottom p-3 text-white">
+            <i class="fa fa-question-circle-o fa-2x" aria-hidden="true"></i>
+        </button>
+    </a>
     <!-- Bootstrap core JavaScript-->
     <script src="{% static 'dashboard/js/jquery.min.js' %}"></script>
     <script src="{% static 'dashboard/js/popper.min.js' %}"></script>
