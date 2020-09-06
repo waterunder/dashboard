@@ -55,7 +55,11 @@
             <div class="card-body">
                 <div class="card-content p-2">
                     <div class="text-center">
-                        <img src="{% static 'dashboard/images/logo-icon.png' %}" alt="logo icon">
+                        <div class="brand-logo">
+                            <a href="{% url 'dashboard' %}">
+                                <i class="zmdi zmdi-boat fa-3x"></i>
+                            </a>
+                        </div>
                     </div>
                     <div class="card-title text-uppercase text-center py-3">Sign In</div>
                     <form action="" method="post">
@@ -63,6 +67,7 @@
                         {{ form|crispy }}
                         <button type="submit" class="btn btn-light btn-block">Sign In</button>
                     </form>
+                    <hr>
                     <div class="text-center mt-3">Sign In With</div>
                     <div class="d-flex mt-4 justify-content-between">
                         <a href="{% provider_login_url 'facebook' %}" class="btn btn-lg btn-light btn-round"><i
