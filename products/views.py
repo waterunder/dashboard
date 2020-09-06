@@ -1,5 +1,6 @@
 import logging
 
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Q
@@ -48,22 +49,28 @@ class SellerProductList(LoginRequiredMixin, ListView):
 class ProductCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Product
     fields = ['title', 'description', 'price', 'active', 'in_stock', 'tags']
-    success_message = "%(title)s was created successfully"
+    success_message = "%(title)s was created successfully!"
 
     def form_valid(self, form):
         form.instance.seller = self.request.user.seller
         return super().form_valid(form)
 
 
-class ProductUpdate(LoginRequiredMixin, UpdateView):
+class ProductUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Product
     fields = ['title', 'description', 'price', 'active', 'in_stock', 'tags']
     template_name_suffix = '_update_form'
+    success_message = "%(title)s was updated successfully!"
 
 
 class ProductDelete(LoginRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('product_list')
+    success_message = "Product was deleted successfully!"
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(ProductDelete, self).delete(request, *args, **kwargs)
 
 
 class SearchResultsListView(LoginRequiredMixin, ListView):

@@ -1,6 +1,8 @@
 import logging
 
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -30,10 +32,11 @@ class SellerDetailView(LoginRequiredMixin, DetailView):
         return context
 
 
-class SellerCreate(LoginRequiredMixin, CreateView):
+class SellerCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Seller
     fields = ['name', 'description', 'email', 'address1', 'address2', 'zip_code',
               'city', 'country', 'logo', 'header_image', ]
+    success_message = "%(name)s was created successfully!"
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
@@ -41,14 +44,20 @@ class SellerCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class SellerUpdate(LoginRequiredMixin, UpdateView):
+class SellerUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Seller
     fields = ['name', 'description', 'email', 'address1', 'address2', 'zip_code',
               'city', 'country', 'logo', 'header_image', ]
 
     template_name_suffix = '_update_form'
+    success_message = "%(name)s was updated successfully!"
 
 
-class SellerDelete(LoginRequiredMixin, DeleteView):
+class SellerDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Seller
     success_url = reverse_lazy('home')
+    success_message = "Seller was deleted successfully!"
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(SellerDelete, self).delete(request, *args, **kwargs)
