@@ -92,25 +92,11 @@
                         <i class="zmdi zmdi-face"></i> <span>Profile</span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="{% url 'account_login' %}">
-                        <i class="zmdi zmdi-lock"></i> <span>Login</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{% url 'account_signup' %}">
-                        <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
-                    </a>
-                </li>
-
                 <li>
                     <a href="" class="pro-btn">
                         <i class="zmdi zmdi-cloud-upload"></i> <span>Upgrade To PRO</span>
                     </a>
                 </li>
-
                 <li class="sidebar-header">LABELS</li>
                 <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee"></i> <span>Important</span></a>
                 </li>
@@ -200,11 +186,17 @@
                                         class="icon-power mr-2"></i> Logout</a>
                             </li>
                             {% else %}
-                            <li class="dropdown-item"><a href="{% url 'account_login' %}"><i
-                                        class="icon-envelope mr-2"></i> Log In</a></li>
+                            <li class="dropdown-item">
+                                <a href="{% url 'account_login' %}">
+                                    <i class="zmdi zmdi-sign-in zmdi-hc-lg zmdi-hc-fw" aria-hidden="true"></i>
+                                    Log In
+                                </a>
+                            </li>
                             <li class="dropdown-divider"></li>
-                            <li class="dropdown-item"><a href="{% url 'account_signup' %}"><i
-                                        class="icon-envelope mr-2"></i> Sign Up
+                            <li class="dropdown-item">
+                                <a href="{% url 'account_signup' %}">
+                                    <i class="zmdi zmdi-account-circle zmdi-hc-lg zmdi-hc-fw"></i>
+                                    Sign Up
                                 </a>
                             </li>
                             {% endif %}
