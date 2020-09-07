@@ -1,14 +1,10 @@
-import random
-
 import factory
 
 from products.models import Product
-from sellers.models import Seller
-
-sellers = Seller.objects.all()
+from sellers.factories import SellerFactory
 
 
-class ProductFactory(factory.Factory):
+class ProductFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Product
 
@@ -17,4 +13,4 @@ class ProductFactory(factory.Factory):
     price = factory.Faker('random_int')
     active = factory.Faker('boolean')
     in_stock = factory.Faker('boolean')
-    seller = random.choice(sellers)
+    seller = factory.SubFactory(SellerFactory)
