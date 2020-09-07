@@ -288,10 +288,10 @@ hr {
   overflow: hidden;
   width: 250px;
   height: 100%;
- -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+ -webkit-transition: all 1.3s ease;
+  -moz-transition: all 1.3s ease;
+  -o-transition: all 1.3s ease;
+  transition: all 1.3s ease;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -318,10 +318,10 @@ hr {
     padding-right: 10px;
     padding-bottom: 70px;
     overflow-x: hidden;
-	-webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+	-webkit-transition: all 1.3s ease;
+  -moz-transition: all 1.3s ease;
+  -o-transition: all 1.3s ease;
+  transition: all 1.3s ease;
   }
 
 /*----------------right-sidebar----------------*/
@@ -340,18 +340,18 @@ hr {
 	padding:10px;
     background: #000000;
 	box-shadow: 0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
-	-webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
+	-webkit-transition: all 1.3s ease;
+    -moz-transition: all 1.3s ease;
+    -ms-transition: all 1.3s ease;
+    -o-transition: all 1.3s ease;
+    transition: all 1.3s ease;
 }
 
 .switcher-icon{
 	width: 40px;
     height: 40px;
 	line-height:40px;
-    background: #000;
+    background: rgba(0,0,0,.2);
 	text-align:center;
 	font-size:22px;
 	color:#fff;
@@ -360,14 +360,14 @@ hr {
 	box-shadow: 0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
     position: fixed;
     right: 0;
-    top: 15rem;
+    top: 55rem;
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
-	-webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
+	-webkit-transition: all 1.3s ease;
+    -moz-transition: all 1.3s ease;
+    -ms-transition: all 1.3s ease;
+    -o-transition: all 1.3s ease;
+    transition: all 1.3s ease;
 }
 
 .right-sidebar.right-toggled{
@@ -556,10 +556,10 @@ body.bg-theme15 {
    font-weight: 600;
    color: #ffffff;
    cursor: pointer;
-   -webkit-transition: all 0.3s ease;
-   -moz-transition: all 0.3s ease;
-   -o-transition: all 0.3s ease;
-   transition: all 0.3s ease;
+   -webkit-transition: all 1.3s ease;
+   -moz-transition: all 1.3s ease;
+   -o-transition: all 1.3s ease;
+   transition: all 1.3s ease;
 }
 
 .right-nav-link a.nav-link {
