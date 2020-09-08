@@ -16,20 +16,20 @@
                         <th scope="col">Lon</th>
                         <th scope="col">Visibility</th>
                         <th scope="col">Bottom Time</th>
+                        <th scope="col">Diver</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for dive in dive_list %}
-
                     <tr>
                         <th scope="row">{{ forloop.counter }}</th>
-                        <td>{{ dive.date }}</td>
-                        <td>{{ dive.lat }}</td>
-                        <td>{{ dive.lon }}</td>
-                        <td>{{ dive.visibility }}</td>
-                        <td>{{ dive.bottom_time }}</td>
+                        <td><a href="{{ dive.get_absolute_url }}">{{ dive.date }}</a></td>
+                        <td><a href="{{ dive.get_absolute_url }}">{{ dive.lat }}</a></td>
+                        <td><a href="{{ dive.get_absolute_url }}">{{ dive.lon }}</a></td>
+                        <td><a href="{{ dive.get_absolute_url }}">{{ dive.visibility }}</a></td>
+                        <td><a href="{{ dive.get_absolute_url }}">{{ dive.bottom_time }}</a></td>
+                        <td><a href="{{ dive.get_absolute_url }}">{{ dive.created_by.get_full_name }}</a></td>
                     </tr>
-
                     {% endfor %}
                 </tbody>
             </table>
