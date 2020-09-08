@@ -42,7 +42,7 @@ class DiveCreateTests(TestCase):
         self.dive = DiveFactory(created_by=self.user)
 
     def test_dive_create_resolves_divecreateview(self):
-        view = resolve('dive_create')
+        view = resolve(reverse('dive_create'))
         self.assertEqual(view.func.__name__, DiveCreate.as_view().__name__)
 
     def test_dive_create_redirects_for_logged_out_user(self):
@@ -53,7 +53,7 @@ class DiveCreateTests(TestCase):
 
 
 class DiveUpdateTests(TestCase):
-    def setup(self):
+    def setUp(self):
         self.user = UserFactory()
         self.dive = DiveFactory(created_by=self.user)
 
