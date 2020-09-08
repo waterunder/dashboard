@@ -36,7 +36,7 @@ class DiveListTests(TestCase):
         self.assertEqual(no_response.status_code, 404)
 
     def test_dive_list_view_shows_dives_for_logged_in_user_only(self):
-        self.fail
+        pass
 
 
 class DiveDetailTests(TestCase):
@@ -49,10 +49,24 @@ class DiveDetailTests(TestCase):
         self.assertEqual(view.func.__name__, DiveDetailView.as_view().__name__)
 
     def test_dive_detail_redirects_for_logged_out_user(self):
-        pass
+        response = self.client.get(self.dive.get_absolute_url())
+        no_response = self.client.get('/dive/123456/')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'dive/dive_detail.html')
+        self.assertEqual(no_response.status_code, 404)
 
     def test_dive_detail_works_for_logged_in_user(self):
-        pass
+        self.client.force_login(self.user)
+
+        response = self.client.get(self.dive.get_absolute_url())
+        no_response = self.client.get('/dive/123456/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'dive/dive_detail.html')
+        self.assertContains(response, 'Log Book')
+        self.assertNotContains(response, 'Hi I should not be on this page!')
+        self.assertEqual(no_response.status_code, 404)
 
 
 class DiveCreateTests(TestCase):
@@ -65,10 +79,24 @@ class DiveCreateTests(TestCase):
         self.assertEqual(view.func.__name__, DiveCreate.as_view().__name__)
 
     def test_dive_create_redirects_for_logged_out_user(self):
-        pass
+        response = self.client.get(reverse('dive_create'))
+        no_response = self.client.get('/dive_create/')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'dive/dive_form.html')
+        self.assertEqual(no_response.status_code, 404)
 
     def test_dive_create_works_for_logged_in_user(self):
-        pass
+        self.client.force_login(self.user)
+
+        response = self.client.get(reverse('dive_create'))
+        no_response = self.client.get('/dive_create/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'dive/dive_form.html')
+        self.assertContains(response, 'Log Book')
+        self.assertNotContains(response, 'Hi I should not be on this page!')
+        self.assertEqual(no_response.status_code, 404)
 
 
 class DiveUpdateTests(TestCase):
@@ -90,10 +118,25 @@ class DiveUpdateTests(TestCase):
         self.assertEqual(view.func.__name__, DiveUpdate.as_view().__name__)
 
     def test_dive_update_redirects_for_logged_out_user(self):
-        pass
+        response = self.client.get(self.dive.get_update_url())
+        no_response = self.client.get('/dive/123456/update/')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'dive/dive_update_form.html')
+        self.assertEqual(no_response.status_code, 404)
 
     def test_dive_update_works_for_logged_in_user(self):
-        pass
+        self.client.force_login(self.user)
+
+        response = self.client.get(self.dive.get_update_url())
+        no_response = self.client.get('/dive/123456/update/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'dive/dive_update_form.html')
+        self.assertContains(response, 'Log Book')
+        self.assertContains(response, 'Update')
+        self.assertNotContains(response, 'Hi I should not be on this page!')
+        self.assertEqual(no_response.status_code, 404)
 
 
 class DiveDeleteTests(TestCase):
@@ -102,10 +145,25 @@ class DiveDeleteTests(TestCase):
         self.dive = DiveFactory(created_by=self.user)
 
     def test_dive_delete_works_for_logged_in_user(self):
-        pass
+        self.client.force_login(self.user)
+
+        response = self.client.get(self.dive.get_delete_url())
+        no_response = self.client.get('/dive/123456/delete/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'dive/dive_confirm_delete.html')
+        self.assertContains(response, 'Log Book')
+        self.assertContains(response, 'Delete')
+        self.assertNotContains(response, 'Hi I should not be on this page!')
+        self.assertEqual(no_response.status_code, 404)
 
     def test_dive_delete_redirects_for_logged_out_user(self):
-        pass
+        response = self.client.get(self.dive.get_delete_url())
+        no_response = self.client.get('/dive/123456/delete/')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'dive/dive_confirm_delete.html')
+        self.assertEqual(no_response.status_code, 404)
 
     def test_dive_delete_works_for_super_user(self):
         pass
