@@ -1,5 +1,16 @@
-from django.views.generic import TemplateView
+from dive.models import Dive
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import DetailView, ListView
 
 
-class Logbook(TemplateView):
-    template_name = 'dive/logbook.html'
+class DiveListView(LoginRequiredMixin, ListView):
+    model = Dive
+    paginate_by = 9
+    context_object_name = 'dive_list'
+    template_name = 'dive/dive_list.html'
+
+
+class DiveDetailView(LoginRequiredMixin, DetailView):
+    model = Dive
+    context_object_name = 'dive'
+    template_name = 'dive/dive_detail.html'
