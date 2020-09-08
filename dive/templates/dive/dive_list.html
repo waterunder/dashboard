@@ -20,6 +20,7 @@
                 </thead>
                 <tbody>
                     {% for dive in dive_list %}
+
                     <tr>
                         <th scope="row">{{ forloop.counter }}</th>
                         <td>{{ dive.date }}</td>
@@ -28,6 +29,7 @@
                         <td>{{ dive.visibility }}</td>
                         <td>{{ dive.bottom_time }}</td>
                     </tr>
+
                     {% endfor %}
                 </tbody>
             </table>
