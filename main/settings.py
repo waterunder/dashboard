@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'dashboard.apps.DashboardConfig',
     'products.apps.ProductsConfig',
     'sellers.apps.SellersConfig',
+    'dive.apps.DiveConfig',
 ]
 
 # django-allauth config
