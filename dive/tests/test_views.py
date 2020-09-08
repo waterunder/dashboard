@@ -11,7 +11,12 @@ class DiveListTests(TestCase):
         self.assertEqual(view.func.__name__, DiveListView.as_view().__name__)
 
     def test_dive_list_redirects_for_logged_out_user(self):
-        pass
+        response = self.client.get(reverse('dive_list'))
+        no_response = self.client.get('/dive_list/')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateNotUsed(response, 'dive/dive_list.html')
+        self.assertEqual(no_response.status_code, 404)
 
     def test_dive_list_works_for_logged_in_user(self):
         pass
