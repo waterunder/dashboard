@@ -3,5 +3,35 @@
 {% block title %}Log Book{% endblock title %}
 
 {% block content %}
-<p class="display-4">Log Book</p>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Your Dives</h5>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Lat</th>
+                        <th scope="col">Lon</th>
+                        <th scope="col">Visibility</th>
+                        <th scope="col">Bottom Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dive in dive_list %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ dive.date }}</td>
+                        <td>{{ dive.lat }}</td>
+                        <td>{{ dive.lon }}</td>
+                        <td>{{ dive.visibility }}</td>
+                        <td>{{ dive.bottom_time }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock content %}
