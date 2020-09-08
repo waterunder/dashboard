@@ -5,7 +5,6 @@ from django.views.generic import DetailView, ListView
 
 class DiveListView(LoginRequiredMixin, ListView):
     model = Dive
-    paginate_by = 9
     context_object_name = 'dive_list'
     template_name = 'dive/dive_list.html'
 

@@ -1,6 +1,7 @@
-from dive.views import Logbook
+from dive.views import DiveDetailView, DiveListView
 from django.urls import path
 
 urlpatterns = [
-    path('logbook/', Logbook.as_view(), name='logbook'),
+    path('', DiveListView.as_view(), name='dive_list'),
+    path('<uuid:pk>/', DiveDetailView.as_view(), name='dive_detail'),
 ]
