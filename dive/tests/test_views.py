@@ -6,6 +6,10 @@ from django.urls import resolve, reverse
 
 # Create your tests here.
 class DiveListTests(TestCase):
+    def setUp(self):
+        self.user = UserFactory()
+        self.dive = DiveFactory(created_by=self.user)
+
     def test_dive_list_view_resolves_divelistview(self):
         view = resolve(reverse('dive_list'))
         self.assertEqual(view.func.__name__, DiveListView.as_view().__name__)
@@ -19,10 +23,20 @@ class DiveListTests(TestCase):
         self.assertEqual(no_response.status_code, 404)
 
     def test_dive_list_works_for_logged_in_user(self):
-        pass
+        self.client.force_login(self.user)
+
+        response = self.client.get(reverse('dive_list'))
+        no_response = self.client.get('/dive_list/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'dive/dive_list.html')
+        self.assertContains(response, 'Dives')
+        self.assertContains(response, 'Log Book')
+        self.assertNotContains(response, 'Hi I should not be on this page!')
+        self.assertEqual(no_response.status_code, 404)
 
     def test_dive_list_view_shows_dives_for_logged_in_user_only(self):
-        pass
+        self.fail
 
 
 class DiveDetailTests(TestCase):
