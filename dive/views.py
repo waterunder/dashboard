@@ -15,6 +15,10 @@ class DiveListView(LoginRequiredMixin, ListView):
     model = Dive
     context_object_name = 'dive_list'
     template_name = 'dive/dive_list.html'
+    paginate_by = 12
+
+    def get_queryset(self):
+        return self.model.objects.filter(created_by=self.request.user)
 
 
 class DiveDetailView(LoginRequiredMixin, DetailView):
