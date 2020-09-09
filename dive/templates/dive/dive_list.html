@@ -22,7 +22,7 @@
                 <tbody>
                     {% for dive in dive_list %}
                     <tr>
-                        <th scope="row">{{ forloop.counter }}</th>
+                        <th scope="row"><a href="{{ dive.get_absolute_url }}">{{ forloop.counter }}</a></th>
                         <td><a href="{{ dive.get_absolute_url }}">{{ dive.date }}</a></td>
                         <td><a href="{{ dive.get_absolute_url }}">{{ dive.lat }}</a></td>
                         <td><a href="{{ dive.get_absolute_url }}">{{ dive.lon }}</a></td>
