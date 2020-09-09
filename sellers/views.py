@@ -55,7 +55,7 @@ class SellerUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
 class SellerDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Seller
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('dashboard')
     success_message = "Seller was deleted successfully!"
 
     def delete(self, request, *args, **kwargs):
