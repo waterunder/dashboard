@@ -1,7 +1,13 @@
 {% extends '_base.html' %}
 {% block title %}Log Book{% endblock title %}
 {% block content %}
-
+<a href="{% url 'dive_list' %}">
+    <div class="d-flex">
+        <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+        <p class="lead ml-2">Dives</p>
+    </div>
+</a>
+<hr class="p-3">
 <div class="row mt-3 justify-content-center">
     <div class="col-lg-4 mb-3">
         <div class="card mt-3 h-100">
