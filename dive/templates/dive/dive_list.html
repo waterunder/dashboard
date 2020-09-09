@@ -5,37 +5,36 @@
 {% block content %}
 
 <div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Your Dives</h5>
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Lat</th>
-                        <th scope="col">Lon</th>
-                        <th scope="col">Visibility</th>
-                        <th scope="col">Bottom Time</th>
-                        <th scope="col">Diver</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for dive in dive_list %}
-                    <tr>
-                        <th scope="row"><a href="{{ dive.get_absolute_url }}">{{ forloop.counter }}</a></th>
-                        <td><a href="{{ dive.get_absolute_url }}">{{ dive.date }}</a></td>
-                        <td><a href="{{ dive.get_absolute_url }}">{{ dive.lat }}</a></td>
-                        <td><a href="{{ dive.get_absolute_url }}">{{ dive.lon }}</a></td>
-                        <td><a href="{{ dive.get_absolute_url }}">{{ dive.visibility }}</a></td>
-                        <td><a href="{{ dive.get_absolute_url }}">{{ dive.bottom_time }}</a></td>
-                        <td><a href="{{ dive.get_absolute_url }}">{{ dive.created_by.get_full_name }}</a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+    <h5 class="card-header">Recent Dives</h5>
+    <div class="table-responsive">
+        <table class="table align-items-center table-flush table-borderless table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Lat</th>
+                    <th scope="col">Lon</th>
+                    <th scope="col">Visibility</th>
+                    <th scope="col">Bottom Time</th>
+                    <th scope="col">Diver</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dive in dive_list %}
+                <tr>
+                    <th scope="row"><a href="{{ dive.get_absolute_url }}">{{ forloop.counter }}</a></th>
+                    <td><a href="{{ dive.get_absolute_url }}">{{ dive.date }}</a></td>
+                    <td><a href="{{ dive.get_absolute_url }}">{{ dive.lat }}</a></td>
+                    <td><a href="{{ dive.get_absolute_url }}">{{ dive.lon }}</a></td>
+                    <td><a href="{{ dive.get_absolute_url }}">{{ dive.visibility }}</a></td>
+                    <td><a href="{{ dive.get_absolute_url }}">{{ dive.bottom_time }}</a></td>
+                    <td><a href="{{ dive.get_absolute_url }}">{{ dive.created_by.get_full_name }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
+
 </div>
 {% include 'dive/_paginate.html' %}
 {% endblock content %}
