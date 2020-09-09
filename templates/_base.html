@@ -134,7 +134,8 @@
 
                 <ul class="navbar-nav align-items-center right-nav-link">
                     <li class="nav-item">
-                        <a href="{% url 'dive_create' %}" class="nav-link">
+                        <a href="{% url 'dive_create' %}" class="nav-link" data-toggle="tooltip" data-placement="top"
+                            title="Log your dive">
                             <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
                         </a>
                     </li>
@@ -295,7 +296,12 @@
     <script src="{% static 'dashboard/plugins/fullcalendar/js/fullcalendar.min.js' %}"></script>
     <script src="{% static 'dashboard/plugins/fullcalendar/js/fullcalendar-custom-script.js' %}"></script>
 
-    <script>$('.toast').toast('show')</script>
+    <script>
+        $('.toast').toast('show')
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </body>
 
 </html>
