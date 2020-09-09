@@ -12,10 +12,33 @@
 <div class="card mt-3">
     <img class="card-img-top" src="https://picsum.photos/1001/180" alt="hero card image">
     <div class="card-body">
-        <h5 class="display-4">Hero Card</h5>
-        <p>This is a wider card with supporting text below as a natural lead-in to additional content. This
-            content is a little bit longer.</p>
-        <p>Last updated 1 day ago.</p>
+        <h5 class="display-4">{{ dive.description }}</h5>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Lat</th>
+                        <th scope="col">Lon</th>
+                        <th scope="col">Visibility</th>
+                        <th scope="col">Bottom Time</th>
+                        <th scope="col">Diver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>{{ dive.date }}</td>
+                        <td>{{ dive.lat }}</td>
+                        <td>{{ dive.lon }}</td>
+                        <td>{{ dive.visibility }}</td>
+                        <td>{{ dive.bottom_time }}</td>
+                        <td>{{ dive.created_by.get_full_name }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="card-footer d-flex justify-content-end">
         <a href="{{ dive.get_update_url }}"><i class="fa fa-pencil fa-lg p-2" aria-hidden="true"></i></a>
