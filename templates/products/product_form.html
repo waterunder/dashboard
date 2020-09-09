@@ -2,18 +2,30 @@
 {% load crispy_forms_tags %}
 {% block title %}Create Product{% endblock title %}
 {% block content %}
-
-
+<a href="{% url 'dashboard' %}" class="text-decoration-none">
+    <div class="d-flex">
+        <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+        <p class="lead ml-2">Back</p>
+    </div>
+</a>
+<hr class="p-2">
 <div class="row mt-3 justify-content-center">
-    <div class="col-lg-4 mb-3">
-        <p class="display-4">Create</p>
-        <form action="" method="post">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" class="btn btn-block btn-light">Save</button>
-        </form>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">Create</div>
+                <hr>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-block btn-light">
+                        <i class="icon-check mr-2 fa-lg"></i>
+                        Save
+                    </button>
+                </form>
+                <hr>
+            </div>
+        </div>
     </div>
 </div>
-
-
 {% endblock content %}
