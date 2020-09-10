@@ -39,7 +39,7 @@ class DiveCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
 class DiveUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Dive
-    fields = ['date', 'lat', 'lon', 'visibility', 'bottom_time', 'description']
+    fields = ['title', 'date', 'lat', 'lon', 'visibility', 'bottom_time', 'avg_depth', 'max_depth', 'waves', 'current', 'description']
     template_name_suffix = '_update_form'
     success_message = "Dive was updated successfully!"
 
