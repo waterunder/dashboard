@@ -1,6 +1,7 @@
 import uuid
 
 from django.contrib.auth import get_user_model
+from django.core.validators import MaxValueValidator
 from django.db import models
 from django.urls import reverse
 
@@ -31,8 +32,10 @@ class Dive(models.Model):
     lat = models.DecimalField(max_digits=9, decimal_places=6)
     lon = models.DecimalField(max_digits=9, decimal_places=6)
     visibility = models.PositiveIntegerField(default=20)
-    bottom_time = models.PositiveIntegerField(default=30)
-    avg_depth = models.PositiveIntegerField(default=10)
+    bottom_time = models.PositiveIntegerField(default=30, validators=[MaxValueValidator(3600)],
+                                              help_text='Bottom time in minutes.')
+    avg_depth = models.PositiveIntegerField(default=10, validators=[MaxValueValidator(5000)],
+                                            help_text='Average dive depth in metres.')
     max_depth = models.IntegerField(default=30)
 
     waves = models.IntegerField(choices=WAVES, default=SMALL)
