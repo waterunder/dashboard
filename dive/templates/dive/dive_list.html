@@ -6,6 +6,7 @@
 
 <div class="card">
     <h5 class="card-header">Recent Dives</h5>
+    {% if dive_list %}
     <div class="table-responsive">
         <table class="table align-items-center table-flush table-borderless table-hover">
             <thead>
@@ -52,7 +53,17 @@
             </tbody>
         </table>
     </div>
+    {% else %}
+    <div class="d-flex flex-column p-5">
+        <p class="lead text-center p-3">You do not have any dives registered yet!</p>
+        <a href="{% url 'dive_create' %}" class="btn btn-light text-center" data-toggle="tooltip" data-placement="top"
+            title="Log your dive">
+            <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+            Create
+        </a>
 
+    </div>
+    {% endif %}
 </div>
 {% include 'dive/_paginate.html' %}
 {% endblock content %}

@@ -4,7 +4,6 @@ from django.test import TestCase
 from django.urls import resolve, reverse
 
 
-# Create your tests here.
 class DiveListTests(TestCase):
     def setUp(self):
         self.user = UserFactory()
@@ -36,7 +35,16 @@ class DiveListTests(TestCase):
         self.assertEqual(no_response.status_code, 404)
 
     def test_dive_list_view_shows_dives_for_logged_in_user_only(self):
-        pass
+        self.user1 = UserFactory()
+        self.user2 = UserFactory()
+
+        self.dive1 = UserFactory(created_by=self.user1)
+        self.dive2 = UserFactory(created_by=self.user1)
+        self.dive3 = UserFactory(created_by=self.user1)
+
+        self.client.login(self.user2)
+        response = self.client.get(reverse('dive_list'))
+        self.assertContains(response, 'You do not have any dives registered yet!')
 
 
 class DiveDetailTests(TestCase):
