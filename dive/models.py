@@ -32,13 +32,17 @@ class Dive(models.Model):
     date = models.DateField(validators=[validate_past_date])
     lat = models.DecimalField(max_digits=9, decimal_places=6)
     lon = models.DecimalField(max_digits=9, decimal_places=6)
-    visibility = models.PositiveIntegerField(default=20)
+    visibility = models.PositiveIntegerField(default=20, validators=[MaxValueValidator(1000)],
+                                             help_text='Visibility in metres.')
     bottom_time = models.PositiveIntegerField(default=30, validators=[MaxValueValidator(3600)],
                                               help_text='Bottom time in minutes.')
     avg_depth = models.PositiveIntegerField(default=10, validators=[MaxValueValidator(5000)],
                                             help_text='Average dive depth in metres.')
-    max_depth = models.IntegerField(default=30)
-
+    max_depth = models.PositiveIntegerField(default=30, validators=[MaxValueValidator(5000)])
+    surface_temperature = models.PositiveIntegerField(default=30, validators=[MaxValueValidator(60)],
+                                                      help_text='Surface temperature in degree celsius.')
+    bottom_temperature = models.PositiveIntegerField(default=15, validators=[MaxValueValidator(60)],
+                                                     help_text='Bottom temperature in degree celsius.')
     waves = models.IntegerField(choices=WAVES, default=SMALL)
     current = models.IntegerField(choices=CURRENT, default=SMALL)
 
