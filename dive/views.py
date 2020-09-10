@@ -29,7 +29,7 @@ class DiveDetailView(LoginRequiredMixin, DetailView):
 
 class DiveCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Dive
-    fields = ['date', 'lat', 'lon', 'visibility', 'bottom_time', 'description']
+    fields = ['title', 'date', 'lat', 'lon', 'visibility', 'bottom_time', 'avg_depth', 'max_depth', 'waves', 'current', 'description']
     success_message = "Dive was created successfully!"
 
     def form_valid(self, form):
