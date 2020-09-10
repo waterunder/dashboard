@@ -1,5 +1,6 @@
 import uuid
 
+from dive.validators import validate_past_date
 from django.contrib.auth import get_user_model
 from django.core.validators import MaxValueValidator
 from django.db import models
@@ -28,7 +29,7 @@ class Dive(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=50, blank=True)
-    date = models.DateField()
+    date = models.DateField(validators=[validate_past_date])
     lat = models.DecimalField(max_digits=9, decimal_places=6)
     lon = models.DecimalField(max_digits=9, decimal_places=6)
     visibility = models.PositiveIntegerField(default=20)
