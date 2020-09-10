@@ -35,16 +35,17 @@ class DiveListTests(TestCase):
         self.assertEqual(no_response.status_code, 404)
 
     def test_dive_list_view_shows_dives_for_logged_in_user_only(self):
-        self.user1 = UserFactory()
-        self.user2 = UserFactory()
+        user1 = UserFactory()
+        user2 = UserFactory()
 
-        self.dive1 = UserFactory(created_by=self.user1)
-        self.dive2 = UserFactory(created_by=self.user1)
-        self.dive3 = UserFactory(created_by=self.user1)
+        _ = DiveFactory(created_by=user1)
+        _ = DiveFactory(created_by=user1)
+        _ = DiveFactory(created_by=user1)
 
-        self.client.login(self.user2)
+        self.client.force_login(user2)
         response = self.client.get(reverse('dive_list'))
         self.assertContains(response, 'You do not have any dives registered yet!')
+        self.assertEqual(response.status_code, 200)
 
 
 class DiveDetailTests(TestCase):
