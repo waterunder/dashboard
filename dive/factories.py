@@ -15,6 +15,8 @@ class UserFactory(factory.django.DjangoModelFactory):
 class DiveFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Dive
+
+    title = factory.Faker('word')
     date = factory.Faker('date_this_year')
     lat = factory.Faker('latitude')
     lon = factory.Faker('longitude')
