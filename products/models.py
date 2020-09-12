@@ -43,6 +43,7 @@ class Product(models.Model):
         permissions = [
             ('special_status', 'Can see all products'),
         ]
+        ordering = ['-date_updated']
 
     def __str__(self):
         return self.title
@@ -55,6 +56,12 @@ class Product(models.Model):
 
     def get_update_url(self):
         return reverse('product_update', args=[str(self.id)])
+
+    def can_update(self, user):
+        return user.is_superuser or self.seller.owner == user
+
+    def can_delete(self, user):
+        return user.is_superuser or self.seller.owner == user
 
 
 class ProductImage(models.Model):
