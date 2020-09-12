@@ -3,7 +3,7 @@ version: '3.7'
 services:
     web:
         build: .
-        command: gunicorn main.wsgi -b 0.0.0.0:8000
+        command: gunicorn main.wsgi -b 0.0.0.0:8000 --log-level DEBUG
         env_file:
             - .env
         volumes:
