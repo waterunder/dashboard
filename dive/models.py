@@ -49,7 +49,7 @@ class Dive(models.Model):
     description = models.TextField(blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    created_by = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='dives')
 
     class Meta:
         ordering = ['-date']
@@ -65,3 +65,9 @@ class Dive(models.Model):
 
     def get_delete_url(self):
         return reverse('dive_delete', args=[str(self.id)])
+
+    def can_delete(self, user):
+        return user.is_superuser or self.created_by == user
+
+    def can_update(self, user):
+        return user.is_superuser or self.created_by == user
