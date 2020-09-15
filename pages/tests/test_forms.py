@@ -8,6 +8,7 @@ class TestForm(TestCase):
     def test_valid_contact_us_form_sends_email(self):
         form = forms.ContactForm({
             'name': 'Luke Skywalker',
+            'email': 'luke@email.com',
             'message': 'Hi there'})
         self.assertTrue(form.is_valid())
 
