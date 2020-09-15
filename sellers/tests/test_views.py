@@ -126,8 +126,20 @@ class SellerUpdateTests(TestCase):
         self.assertEqual(no_response.status_code, 404)
 
     def test_seller_update_resolve_sellerupdateview(self):
+
         view = resolve(self.seller.get_update_url())
         self.assertEqual(view.func.__name__, SellerUpdate.as_view().__name__)
+
+    def test_seller_update_for_non_existing_seller_routes_to_not_found(self):
+        self.assertEqual(Seller.objects.count(), 1)
+        non_existing_seller_url = self.seller.get_update_url()
+
+        Seller.objects.all().delete()
+        self.assertEqual(Seller.objects.count(), 0)
+
+        self.client.force_login(self.user)
+        response = self.client.get(non_existing_seller_url)
+        self.assertEqual(response.status_code, 404)
 
 
 class SellerDeleteTests(TestCase):
