@@ -1,7 +1,8 @@
-from django.contrib.auth import get_user_model
+from django.contrib.messages import get_messages
 from django.test import TestCase
 from django.urls import resolve, reverse
 
+from sellers.factories import SellerFactory, UserFactory
 from sellers.models import Seller
 from sellers.views import (
     SellerCreate,
@@ -12,23 +13,10 @@ from sellers.views import (
 )
 
 
-class SellerTests(TestCase):
+class SellerListTests(TestCase):
     def setUp(self):
-        self.user = get_user_model().objects.create_user(
-            username='testuser',
-            email='testuser@email.com',
-            password='testpass123',
-        )
-        self.seller = Seller.objects.create(
-            name='Test Company LLC',
-            description='Top worldwide experts in selling',
-            email='testcompany@email.com',
-            address1='Av de Mayo 855, portaldelsur, CABA',
-            zip_code='1086',
-            city='Buenos Aires',
-            country='uk',
-            owner=self.user,
-        )
+        self.user = UserFactory()
+        self.seller = SellerFactory(owner=self.user)
 
     def test_seller_list_view_works_for_loggedin_user(self):
         self.client.force_login(self.user)
@@ -52,6 +40,12 @@ class SellerTests(TestCase):
     def test_seller_list_resolves_sellerlistview(self):
         view = resolve(reverse('seller_list'))
         self.assertEqual(view.func.__name__, SellerListView.as_view().__name__)
+
+
+class SellerDetailTests(TestCase):
+    def setUp(self):
+        self.user = UserFactory()
+        self.seller = SellerFactory(owner=self.user)
 
     def test_seller_detail_view_works_for_loggedin_user(self):
         self.client.force_login(self.user)
@@ -79,22 +73,9 @@ class SellerTests(TestCase):
 
 class SellerCreateTests(TestCase):
     def setUp(self):
-        self.user = get_user_model().objects.create_user(
-            username='testuser',
-            email='testuser@email.com',
-            password='testpass123'
-        )
+        self.user = UserFactory()
 
-        self.seller = Seller.objects.create(
-            name='Test Company LLC',
-            description='Top worldwide experts in selling',
-            email='testcompany@email.com',
-            address1='Av de Mayo 855, portaldelsur, CABA',
-            zip_code='1086',
-            city='Buenos Aires',
-            country='uk',
-            owner=self.user,
-        )
+        self.seller = SellerFactory(owner=self.user)
 
     def test_seller_create_page_works_for_logged_in_user(self):
         self.client.force_login(self.user)
@@ -119,6 +100,12 @@ class SellerCreateTests(TestCase):
         view = resolve('/sellers/create/')
         self.assertEqual(view.func.__name__, SellerCreate.as_view().__name__)
 
+
+class SellerUpdateTests(TestCase):
+    def setUp(self):
+        self.user = UserFactory()
+        self.seller = SellerFactory(owner=self.user)
+
     def test_seller_update_page_works_for_logged_in_user(self):
         self.client.force_login(self.user)
         response = self.client.get(self.seller.get_update_url())
@@ -126,7 +113,7 @@ class SellerCreateTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'sellers/seller_update_form.html')
-        self.assertContains(response, 'Edit')
+        self.assertContains(response, 'Update')
         self.assertNotContains(response, 'Hi I should not be on this page!')
         self.assertEqual(no_response.status_code, 404)
 
@@ -142,6 +129,12 @@ class SellerCreateTests(TestCase):
         view = resolve(self.seller.get_update_url())
         self.assertEqual(view.func.__name__, SellerUpdate.as_view().__name__)
 
+
+class SellerDeleteTests(TestCase):
+    def setUp(self):
+        self.user = UserFactory()
+        self.seller = SellerFactory(owner=self.user)
+
     def test_seller_delete_page_works_for_logged_in_user(self):
         self.client.force_login(self.user)
         response = self.client.get(self.seller.get_delete_url())
@@ -152,6 +145,17 @@ class SellerCreateTests(TestCase):
         self.assertContains(response, 'Delete')
         self.assertNotContains(response, 'Hi I should not be on this page!')
         self.assertEqual(no_response.status_code, 404)
+
+    def test_seller_delete_with_valid_post_data_deletes_the_seller(self):
+        self.client.force_login(self.user)
+        response = self.client.post(self.seller.get_delete_url())
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Seller.objects.count(), 0)
+
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(str(messages[0]), "Seller was deleted successfully!")
 
     def test_seller_delete_page_redirects_for_anonymous_user(self):
         response = self.client.get(self.seller.get_delete_url())
