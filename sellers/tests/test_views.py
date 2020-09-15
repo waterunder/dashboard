@@ -1,4 +1,5 @@
 from django.contrib.messages import get_messages
+from django.forms.models import model_to_dict
 from django.test import TestCase
 from django.urls import resolve, reverse
 
@@ -78,8 +79,6 @@ class SellerCreateTests(TestCase):
     def setUp(self):
         self.user = UserFactory()
 
-        self.seller = SellerFactory(owner=self.user)
-
     def test_seller_create_page_works_for_logged_in_user(self):
         self.client.force_login(self.user)
         response = self.client.get(reverse('seller_create'))
@@ -90,6 +89,17 @@ class SellerCreateTests(TestCase):
         self.assertTemplateUsed(response, 'sellers/seller_form.html')
         self.assertNotContains(response, 'Hi I should not be on this page')
         self.assertEqual(no_response.status_code, 404)
+
+    def test_seller_create_with_valid_post_data_creates_a_new_seller(self):
+        self.client.force_login(self.user)
+        data = model_to_dict(SellerFactory())
+        data.pop('logo')
+        data.pop('header_image')
+        response = self.client.post(reverse('seller_create'), data=data)
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Seller.objects.count(), 2)
+        self.assertEqual(Seller.objects.all()[0].name, data['name'])
 
     def test_seller_create_page_redirects_for_anonymous_user(self):
         response = self.client.get(reverse('seller_create'))
