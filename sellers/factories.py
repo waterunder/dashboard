@@ -20,7 +20,7 @@ class SellerFactory(factory.django.DjangoModelFactory):
         model = Seller
 
     name = factory.Faker('company')
-    description = factory.Faker('sentence')
+    description = factory.Faker('text')
     email = factory.Faker('email')
     address1 = factory.Faker('address')
     address2 = factory.Faker('address')
