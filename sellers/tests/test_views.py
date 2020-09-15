@@ -165,7 +165,7 @@ class SellerDeleteTests(TestCase):
 
         Seller.objects.all().delete()
 
-        self.client.login(self.user)
+        self.client.force_login(self.user)
         response = self.client.get(non_existing_seller_url)
         self.assertEqual(response.status_code, 404)
         self.assertTemplateUsed(response, '404.html')

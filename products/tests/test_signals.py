@@ -1,41 +1,22 @@
-from decimal import Decimal
-
-from django.contrib.auth import get_user_model
 from django.core.files.images import ImageFile
 from django.test import TestCase
 
-from products import models
-from sellers.models import Seller
+from products.factories import ProductFactory
+from products.models import ProductImage
+from sellers.factories import SellerFactory, UserFactory
 
 
 class TestSignal(TestCase):
-    def test_thumbnails_are_generated_on_save(self):
-        user = get_user_model().objects.create_user(
-            username='reviewuser',
-            email='reviewuser@email.com',
-            password='testpass123',
-        )
-        seller = Seller(name='The Royal Co.',
-                        email='theroyal@email.com',
-                        address1='155, BakerStreet, London',
-                        zip_code='1001',
-                        city='London',
-                        country='uk',
-                        owner=user)
+    def setUp(self):
+        self.user = UserFactory()
+        self.seller = SellerFactory(owner=self.user)
+        self.product = ProductFactory(seller=self.seller)
 
-        product = models.Product(
-            title='The cathedral and the bazaar',
-            description='A nice book',
-            price=Decimal('10.00'),
-            seller=seller,
-        )
-        user.save()
-        seller.save()
-        product.save()
+    def test_thumbnails_are_generated_on_save(self):
 
         with open('products/fixtures/the-cathedral-the-bazaar.jpg', 'rb') as f:
-            image = models.ProductImage(
-                product=product,
+            image = ProductImage(
+                product=self.product,
                 image=ImageFile(f, name='tctb.jpg'),
             )
             with self.assertLogs('products.signals', level='INFO') as cm:
