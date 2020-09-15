@@ -147,6 +147,8 @@ class SellerDeleteTests(TestCase):
         self.assertEqual(no_response.status_code, 404)
 
     def test_seller_delete_with_valid_post_data_deletes_the_seller(self):
+        self.assertEqual(Seller.objects.count(), 1)
+
         self.client.force_login(self.user)
         response = self.client.post(self.seller.get_delete_url())
 
@@ -156,6 +158,28 @@ class SellerDeleteTests(TestCase):
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]), "Seller was deleted successfully!")
+
+    def test_seller_delete_for_non_existing_seller_routes_to_not_found(self):
+        non_existing_seller_url = self.seller.get_delete_url()
+        self.assertEqual(Seller.objects.count(), 1)
+
+        Seller.objects.all().delete()
+
+        self.client.login(self.user)
+        response = self.client.get(non_existing_seller_url)
+        self.assertEqual(response.status_code, 404)
+        self.assertTemplateUsed(response, '404.html')
+
+    def test_seller_delete_with_valid_post_for_non_existing_seller_routes_to_not_found(self):
+        seller_url = self.seller.get_delete_url()
+        Seller.objects.all().delete()
+
+        self.assertEqual(Seller.objects.count(), 0)
+        self.client.force_login(self.user)
+        response = self.client.post(seller_url)
+
+        self.assertEqual(response.status_code, 404)
+        self.assertTemplateUsed(response, '404.html')
 
     def test_seller_delete_page_redirects_for_anonymous_user(self):
         response = self.client.get(self.seller.get_delete_url())
