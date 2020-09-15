@@ -2,6 +2,7 @@ from django.contrib.messages import get_messages
 from django.test import TestCase
 from django.urls import resolve, reverse
 
+from products.factories import ProductFactory
 from sellers.factories import SellerFactory, UserFactory
 from sellers.models import Seller
 from sellers.views import (
@@ -46,6 +47,7 @@ class SellerDetailTests(TestCase):
     def setUp(self):
         self.user = UserFactory()
         self.seller = SellerFactory(owner=self.user)
+        self.product = ProductFactory(seller=self.seller)
 
     def test_seller_detail_view_works_for_loggedin_user(self):
         self.client.force_login(self.user)
@@ -54,6 +56,7 @@ class SellerDetailTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, self.seller.name.title())
+        self.assertEqual(len(response.context_data['seller_products']), 1)
         self.assertNotContains(response, 'Hi I should not be on this page')
         self.assertTemplateUsed(response, 'sellers/seller_detail.html')
         self.assertEqual(no_response.status_code, 404)

@@ -24,9 +24,7 @@ class SellerDetailView(LoginRequiredMixin, DetailView):
     template = 'sellers/seller_detail.html'
 
     def get_context_data(self, **kwargs):
-        # first get the default context
         context = super().get_context_data(**kwargs)
-        # get the current seller object
         seller = self.get_object()
         context['seller_products'] = seller.products.all()
         return context
