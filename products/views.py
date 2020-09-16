@@ -41,7 +41,6 @@ class SellerProductList(LoginRequiredMixin, ListView):
         return Product.objects.filter(seller=self.seller)
 
     def get_context_data(self, **kwargs):
-        # call the base context first
         context = super().get_context_data(**kwargs)
         context['seller'] = self.seller
         return context
@@ -65,7 +64,7 @@ class ProductUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def get_object(self, queryset=None):
         obj = super().get_object()
-        if not obj.seller.owner == self.request.user:
+        if not obj.can_update(self.request.user):
             logger.critical('Possible attack: \nuser: %s\nobj: %s', self.request.user, obj)
             raise Http404
         return obj
@@ -78,7 +77,7 @@ class ProductDelete(LoginRequiredMixin, DeleteView):
 
     def get_object(self, queryset=None):
         obj = super().get_object()
-        if not obj.seller.owner == self.request.user:
+        if not obj.can_delete(self.request.user):
             logger.critical('Possible attack: \nuser: %s\nobj: %s', self.request.user, obj)
             raise Http404
         return obj
