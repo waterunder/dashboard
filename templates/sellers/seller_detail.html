@@ -20,6 +20,7 @@
             </li>
 
         </ul>
+        {% if user == seller.owner %}
         <ul class="nav nav-tabs card-header-tabs" role="tablist">
             <li class="nav-item">
                 <a href="{{ seller.get_update_url  }}" class="nav-link"><i class="zmdi zmdi-edit fa-lg"></i></a>
@@ -28,6 +29,7 @@
                 <a href="{{ seller.get_delete_url }}" class="nav-link"><i class="zmdi zmdi-delete fa-lg"></i></a>
             </li>
         </ul>
+        {% endif %}
     </div>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
