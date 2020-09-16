@@ -3,6 +3,7 @@ import logging
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -57,5 +58,9 @@ class SellerDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     success_message = "Seller was deleted successfully!"
 
     def delete(self, request, *args, **kwargs):
+        if not self.get_object().can_delete(self.request.user):
+            logger.critical('Possible Hack attack: user %s, obj: %s',
+                            self.request.user, self.get_object())
+            return HttpResponse('Unauthorized', status=401)
         messages.success(self.request, self.success_message)
         return super(SellerDelete, self).delete(request, *args, **kwargs)
