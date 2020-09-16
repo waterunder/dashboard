@@ -46,7 +46,7 @@ class DiveUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def get_object(self, queryset=None):
         obj = super().get_object()
-        if not obj.created_by == self.request.user:
+        if not obj.can_update(self.request.user):
             logger.critical('Possible attack: \nuser: %s\nobj: %s', self.request.user, obj)
             raise Http404
         return obj
@@ -59,7 +59,7 @@ class DiveDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
 
     def get_object(self, queryset=None):
         obj = super().get_object()
-        if not obj.created_by == self.request.user:
+        if not obj.can_delete(self.request.user):
             logger.critical('Possible attack: \nuser: %s\nobj: %s', self.request.user, obj)
             raise Http404
         return obj
