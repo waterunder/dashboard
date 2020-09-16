@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Q
+from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
@@ -62,11 +63,25 @@ class ProductUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name_suffix = '_update_form'
     success_message = "%(title)s was updated successfully!"
 
+    def get_object(self, queryset=None):
+        obj = super().get_object()
+        if not obj.seller.owner == self.request.user:
+            logger.critical('Possible attack: \nuser: %s\nobj: %s', self.request.user, obj)
+            raise Http404
+        return obj
+
 
 class ProductDelete(LoginRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('product_list')
     success_message = "Product was deleted successfully!"
+
+    def get_object(self, queryset=None):
+        obj = super().get_object()
+        if not obj.seller.owner == self.request.user:
+            logger.critical('Possible attack: \nuser: %s\nobj: %s', self.request.user, obj)
+            raise Http404
+        return obj
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
