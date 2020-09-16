@@ -3,7 +3,7 @@ import logging
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.http import HttpResponse
+from django.http import Http404
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -51,16 +51,26 @@ class SellerUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name_suffix = '_update_form'
     success_message = "%(name)s was updated successfully!"
 
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset=queryset)
+        if not obj.owner == self.request.user:
+            logger.critical('Possible attack: \nuser: %s\nobj: %s', self.request.user, obj)
+            raise Http404
+        return obj
+
 
 class SellerDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Seller
     success_url = reverse_lazy('dashboard')
     success_message = "Seller was deleted successfully!"
 
+    def get_object(self, queryset=None):
+        obj = super().get_object()
+        if not obj.owner == self.request.user:
+            logger.critical('Possible attack: \nuser: %s\nobj: %s', self.request.user, obj)
+            raise Http404
+        return obj
+
     def delete(self, request, *args, **kwargs):
-        if not self.get_object().can_delete(self.request.user):
-            logger.critical('Possible Hack attack: user %s, obj: %s',
-                            self.request.user, self.get_object())
-            return HttpResponse('Unauthorized', status=401)
         messages.success(self.request, self.success_message)
         return super(SellerDelete, self).delete(request, *args, **kwargs)
