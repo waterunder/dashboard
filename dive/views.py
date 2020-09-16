@@ -4,6 +4,7 @@ from dive.models import Dive
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import Http404
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -43,11 +44,25 @@ class DiveUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name_suffix = '_update_form'
     success_message = "Dive was updated successfully!"
 
+    def get_object(self, queryset=None):
+        obj = super().get_object()
+        if not obj.created_by == self.request.user:
+            logger.critical('Possible attack: \nuser: %s\nobj: %s', self.request.user, obj)
+            raise Http404
+        return obj
+
 
 class DiveDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Dive
     success_url = reverse_lazy('dive_list')
     success_message = "Dive was deleted successfully!"
+
+    def get_object(self, queryset=None):
+        obj = super().get_object()
+        if not obj.created_by == self.request.user:
+            logger.critical('Possible attack: \nuser: %s\nobj: %s', self.request.user, obj)
+            raise Http404
+        return obj
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
