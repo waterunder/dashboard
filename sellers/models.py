@@ -52,3 +52,9 @@ class Seller(models.Model):
 
     def get_delete_url(self):
         return reverse('seller_delete', args=[str(self.id)])
+
+    def can_delete(self, user):
+        return user.is_superuser or self.owner == user
+
+    def can_update(self, user):
+        return user.is_superuser or self.owner == user
