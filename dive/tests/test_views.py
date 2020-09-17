@@ -34,7 +34,7 @@ class DiveListTests(TestCase):
         self.assertNotContains(response, 'Hi I should not be on this page!')
         self.assertEqual(no_response.status_code, 404)
 
-    def test_dive_list_view_shows_dives_for_logged_in_user_only(self):
+    def test_dive_list_view_does_not_shows_dives_of_other_user(self):
         user1 = UserFactory()
         user2 = UserFactory()
 
@@ -46,6 +46,19 @@ class DiveListTests(TestCase):
         response = self.client.get(reverse('dive_list'))
         self.assertContains(response, 'You do not have any dives registered yet!')
         self.assertEqual(response.status_code, 200)
+
+    def test_dive_list_shows_dives_of_logged_in_user_only(self):
+        user_1 = UserFactory()
+        user_2 = UserFactory()
+
+        _ = DiveFactory(created_by=user_1)
+        _ = DiveFactory(created_by=user_1)
+        _ = DiveFactory(created_by=user_2)
+
+        self.client.force_login(user_1)
+        response = self.client.get(reverse('dive_list'))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.context_data['dive_list']), 2)
 
 
 class DiveDetailTests(TestCase):
