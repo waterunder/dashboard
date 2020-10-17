@@ -33,6 +33,9 @@ class Seller(models.Model):
 
     owner = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, related_name='seller')
 
+    class Meta:
+        ordering = ('-created_at',)
+
     def __str__(self):
         return ", ".join(
             [
