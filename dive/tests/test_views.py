@@ -1,5 +1,7 @@
 from dive.factories import DiveFactory, UserFactory
+from dive.models import Dive
 from dive.views import DiveCreate, DiveDelete, DiveDetailView, DiveListView, DiveUpdate
+from django.forms.models import model_to_dict
 from django.test import TestCase
 from django.urls import resolve, reverse
 
@@ -87,6 +89,7 @@ class DiveDetailTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'dive/dive_detail.html')
         self.assertContains(response, 'Log Book')
+        self.assertContains(response, self.dive.description)
         self.assertNotContains(response, 'Hi I should not be on this page!')
         self.assertEqual(no_response.status_code, 404)
 
@@ -120,13 +123,24 @@ class DiveCreateTests(TestCase):
         self.assertNotContains(response, 'Hi I should not be on this page!')
         self.assertEqual(no_response.status_code, 404)
 
+    def test_dive_create_with_valid_post_data_works(self):
+        self.client.force_login(self.user)
+        self.assertEqual(Dive.objects.count(), 1)
+        data = model_to_dict(DiveFactory())
+
+        response = self.client.post(reverse('dive_create'), data=data)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(Dive.objects.count(), 2)
+
 
 class DiveUpdateTests(TestCase):
     def setUp(self):
         self.user = UserFactory()
+        self.unauthorized_user = UserFactory()
+
         self.dive = DiveFactory(created_by=self.user)
 
-    def test_dive_update_works_for_user_who_created_the_dive(self):
+    def test_dive_update_for_non_existing_dive_routes_to_not_found(self):
         pass
 
     def test_dive_update_redirects_for_user_who_did_not_create_the_dive(self):
