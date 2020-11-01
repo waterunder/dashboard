@@ -23,6 +23,7 @@ faker = "*"
 ipython = "*"
 pre-commit = "*"
 factory-boy = "*"
+django-taggit = "==1.2.0"
 
 [requires]
 python_version = "3.7"
