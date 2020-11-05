@@ -3,28 +3,7 @@ import uuid
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
-
 from sellers.models import Seller
-
-
-class ProductTagManager(models.Manager):
-    def get_by_natural_key(self, slug):
-        return self.get(slug=slug)
-
-
-class ProductTag(models.Model):
-    name = models.CharField(max_length=32)
-    slug = models.SlugField(max_length=48)
-    description = models.TextField(blank=True)
-    active = models.BooleanField(default=True)
-
-    objects = ProductTagManager()
-
-    def __str__(self):
-        return self.name
-
-    def natural_key(self):
-        return (self.slug,)
 
 
 class Product(models.Model):
@@ -37,7 +16,6 @@ class Product(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
 
     seller = models.ForeignKey(Seller, on_delete=models.CASCADE, related_name='products')
-    tags = models.ManyToManyField(ProductTag, blank=True, related_name='products')
 
     class Meta:
         permissions = [
