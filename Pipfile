@@ -26,4 +26,4 @@ factory-boy = "*"
 django-taggit = "==1.2.0"
 
 [requires]
-python_version = "3.7"
+python_version = "3.9"
