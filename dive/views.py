@@ -1,6 +1,5 @@
 import logging
 
-from dive.models import Dive
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -8,6 +7,8 @@ from django.http import Http404
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+
+from dive.models import Dive
 
 logger = logging.getLogger(__name__)
 
