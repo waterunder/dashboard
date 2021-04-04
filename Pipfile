@@ -4,26 +4,21 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-autopep8 = "*"
 pylint = "*"
-pylint-django = "*"
+autopep8 = "*"
 
 [packages]
 django = "*"
-psycopg2-binary = "==2.8.3"
-django-crispy-forms = "==1.8.0"
-django-allauth = "==0.42.0"
-pillow = "==7.2.0"
-django-extensions = "*"
-django-environ = "*"
-whitenoise = "==4.1.4"
-gunicorn = "==19.9.0"
-dj-database-url = "==0.5.0"
-faker = "*"
-ipython = "*"
-pre-commit = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+django-crispy-forms = "*"
+django-allauth = "*"
+django-taggit = "*"
+dj-database-url = "*"
 factory-boy = "*"
-django-taggit = "==1.2.0"
+whitenoise = "*"
+django-extensions = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.9"
