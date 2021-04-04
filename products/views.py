@@ -7,11 +7,12 @@ from django.db.models import Q
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, FormView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-
-from products.models import Product
 from sellers.models import Seller
+
+from products.forms import ProductShareForm
+from products.models import Product
 
 logger = logging.getLogger(__name__)
 
@@ -85,6 +86,14 @@ class ProductDelete(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
         return super(ProductDelete, self).delete(request, *args, **kwargs)
+
+
+class ProductShare(LoginRequiredMixin, FormView):
+    form_class = ProductShareForm
+
+    def form_valid(self, form):
+        form.send_mail()
+        return super().form_valid(form)
 
 
 class SearchResultsListView(LoginRequiredMixin, ListView):
