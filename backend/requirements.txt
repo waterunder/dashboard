@@ -1,5 +1,5 @@
-autopep8
 bandit
+black
 Django
 django-allauth
 django-crispy-forms
